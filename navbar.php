@@ -17,6 +17,8 @@
                             <a href="about-us.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/about-us.php"){echo "active";} ?>">About Us</a>
                             <a href="admission-requirements.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/admission-requirements.php"){echo "active";} ?>">Admission requirements</a>
                             <a href="code-of-ethics.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/code-of-ethics.php"){echo "active";} ?>">Code of Ethics</a>
+                            <a href="school-pledge.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/school-pledge.php"){echo "active";} ?>">School Pledge</a>
+                            <a href="school-anthem.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/school-anthem.php"){echo "active";} ?>">School Anthem</a>
                             <!-- <a href="princpal-message.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/princpal-message.php"){echo "active";} ?>">Principals message</a> -->
                             <!-- <a href="partnership-with-parents.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/partnership-with-parents.php"){echo "active";} ?>">Partnership With Parents</a>
                             <a href="health-safty-and-nutrition.php" class="dropdown-item <?php if($_SERVER['REQUEST_URI'] == "/our-testimonial.php"){echo "active";} ?>">Health Safety and Nutrition</a>

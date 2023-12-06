@@ -100,12 +100,12 @@
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                 <p class="text-uppercase">Our Beautiful Moments</p>
-                <h3 class="title-style">Gallary</h3>
+                <h3 class="title-style">Video Gallary</h3>
             </div>
             
                 <div id="nanoGallery3">
                 <?php
-                    $sql = "SELECT * FROM imageuploads WHERE uniqueid = '".$uniqueid."' ";
+                    $sql = "SELECT * FROM videouploads WHERE uniqueid = '".$uniqueid."' ";
                     $query = mysqli_query($conn,$sql);
                     $countrows = mysqli_num_rows($query);
                 ?>

@@ -1,5 +1,5 @@
 <?php
-  include('db/db.php');
+include('db/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,24 +10,24 @@
     <meta charset="utf-8">
     <meta name="description" content="Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School.">
 
-  <meta name="keywords" content="Gracedew International School, gracedew, About gracedew, About gracedew International, Schools at Teshie, gracedew, about gracedew, gracedew gallary, gracedew images, gracedew videos, gracedew events, gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
+    <meta name="keywords" content="Gracedew International School, gracedew, About gracedew, About gracedew International, Schools at Teshie, gracedew, about gracedew, gracedew gallary, gracedew images, gracedew videos, gracedew events, gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://wonderworldinternationalschool.com"/>
+    <link rel="canonical" href="https://wonderworldinternationalschool.com"/>
 
-  <meta property="og:description" content="Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School." />
+    <meta property="og:description" content="Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School." />
 
-  <meta property="og:title" content="Gracedew International School | Home" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://wonderworldinternationalschool.com" />
-  <meta property="og:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
+    <meta property="og:title" content="Gracedew International School | Home" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wonderworldinternationalschool.com" />
+    <meta property="og:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
 
 
-  <meta name="twitter:title" content="Gracedew International School | Home" />
-  <meta name="twitter:site" content="@blogogua" />
-  <meta name="twitter:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
-  <meta name="twitter:description" content="Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School." />
+    <meta name="twitter:title" content="Gracedew International School | Home" />
+    <meta name="twitter:site" content="@blogogua" />
+    <meta name="twitter:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
+    <meta name="twitter:description" content="Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School." />
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Home","description":"Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School.","image":"https://wonderworldinternationalschool.com/assets/images/banner.jpg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Home","description":"Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School.","image":"https://wonderworldinternationalschool.com/assets/images/banner.jpg"}</script>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Google Web Fonts -->
@@ -125,7 +125,7 @@
         <!-- Carousel End -->
 
         <?php
-           include('welcome-message.php');
+        include('welcome-message.php');
         ?>
 
 
@@ -203,9 +203,9 @@
                         <div class="col-lg-offset-1 col-lg-10 wow fadeIn" data-wow-delay="0.6s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4 wow fadeInUp" data-wow-delay="0.6s">Why Choose us</h1>
-                                <p class="mb-4"></p>
-                                <p class="mb-4"></p>
-                                <p class="mb-4">.</p>
+                                <p class="mb-4">Gracedew International School stands out as an exemplary institution for several compelling reasons. Firstly, the school is renowned for its unwavering commitment to academic excellence. The dedicated faculty at Gracedew fosters an environment that encourages critical thinking, creativity, and a love for learning. The rigorous curriculum is designed to equip students with not only academic knowledge but also essential life skills, preparing them for the challenges of the future.</p>
+                                <p class="mb-4">Beyond academics, Gracedew International School places a strong emphasis on holistic development. The school provides a plethora of extracurricular activities, ranging from sports to arts and cultural events. This holistic approach ensures that students receive a well-rounded education, nurturing their physical, emotional, and social well-being. The school's commitment to fostering leadership qualities and character development sets it apart, shaping students into well-rounded individuals ready to contribute meaningfully to society.</p>
+                                <p class="mb-4">Moreover, Gracedew International School prioritizes a global perspective in education. The multicultural environment and diverse student body create an enriching learning experience. The school also offers international exchange programs and collaborations with institutions worldwide, exposing students to different cultures and perspectives. This global outlook prepares students to thrive in an interconnected world, making Gracedew an excellent choice for those seeking a comprehensive and globally-focused education for their children.</p>
                                 
                                 
                             </div>
@@ -237,7 +237,7 @@
 
         <!-- Testimonial Start -->
         <?php
-          include('testimonial.php');
+        include('testimonial.php');
         ?>
         <!-- Testimonial End -->
 
@@ -248,7 +248,7 @@
         <!-- About End -->
         <!-- Footer Start -->
         <?php
-          include('footer.php');
+        include('footer.php');
         ?>
         <!-- Footer End -->
 

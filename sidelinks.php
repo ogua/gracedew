@@ -12,9 +12,9 @@
             <li><a href="communication.php">Communication</a></li>
             <li><a href="complaints-procedure.php">Complaints Procedure</a></li>
             <li><a href="personal-appearance.php">Personal Appearance</a></li>
-            <li><a href="">empty</a></li>
-            <li><a href="">empty</a></li>
-            <li><a href="">empty</a></li>
+            <li><a href="school-pledge.php">School Pledge</a></li>
+            <li><a href="school-anthem.php">School Anthem</a></li>
+            <!-- <li><a href="">empty</a></li> -->
         </ul>
     </div>
 </div>
