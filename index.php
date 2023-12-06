@@ -12,7 +12,7 @@ include('db/db.php');
 
     <meta name="keywords" content="Gracedew International School, gracedew, About gracedew, About gracedew International, Schools at Teshie, gracedew, about gracedew, gracedew gallary, gracedew images, gracedew videos, gracedew events, gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-    <link rel="canonical" href="https://wonderworldinternationalschool.com"/>
+    <link rel="canonical" href="https://gracedewintsch.com"/>
 
     <meta property="og:description" content="Welcome to the official website of Gracedew International School, get all the latest information about Gracedew International School." />
 

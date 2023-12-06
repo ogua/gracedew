@@ -9,7 +9,7 @@
 
     <meta name="keywords" content="Gracedew International School, Wonder World, About Wonder World, About Wonder World International, Schools at Teshie, Wonder World, about Wonder World, Wonder World gallary, Wonder World images, Wonder World videos, Wonder World events, Wonder World school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-    <link rel="canonical" href="https://wonderworldinternationalschool.com/admission-requirements.php"/>
+    <link rel="canonical" href="https://gracedewintsch.com/admission-requirements.php"/>
 
     <meta property="og:description" content="Fill out the Preliminary Inquiry form. (Add a Passport Picture of your child)." />
 

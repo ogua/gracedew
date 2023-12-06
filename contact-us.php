@@ -10,7 +10,7 @@
 
   <meta name="keywords" content="Gradedew International School, Gradedew, About Gradedew, About Gradedew International, Schools at Teshie, Gradedew, about Gradedew, Gradedew gallary, Gradedew images, Gradedew videos, Gradedew events, Gradedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://wonderworldinternationalschool.com/contact-us.php"/>
+  <link rel="canonical" href="https://gracedewintsch.com/contact-us.php"/>
 
   <meta property="og:description" content="Get In Touch with Gradedew International School, Adjiriganor, East-Legon,
 (Father Odai Kwabina Street) GD-210-9384." />

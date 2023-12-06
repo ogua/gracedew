@@ -12,7 +12,7 @@
 
   <meta name="keywords" content="Gracedew International School, Gracedew, About Gracedew, About Gracedew International, Schools at Teshie, Gracedew, about Gracedew, Gracedew gallary, Gracedew images, Gracedew videos, Gracedew events, Gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://wonderworldinternationalschool.com/our-testimonial.php"/>
+  <link rel="canonical" href="https://gracedewintsch.com/our-testimonial.php"/>
 
   <meta property="og:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 

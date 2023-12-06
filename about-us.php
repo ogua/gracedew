@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="Gracedew International School, Wonder World, About Wonder World, About Wonder World International, Schools at Teshie, Wonder World, about Wonder World, Wonder World gallary, Wonder World images, Wonder World videos, Wonder World events, Wonder World school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://wonderworldinternationalschool.com/about-us.php"/>
+  <link rel="canonical" href="https://gracedewintsch.com/about-us.php"/>
 
   <meta property="og:description" content="We believe students learn best when they feel safe, valued and happy. Our staff is committed to providing an environment that nurtures personal growth and self-esteem." />
 

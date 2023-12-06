@@ -12,22 +12,22 @@
 
   <meta name="keywords" content="Gracedew International School, Gracedew, About Gracedew, About Gracedew International, Schools at Teshie, Gracedew, about Gracedew, Gracedew gallary, Gracedew images, Gracedew videos, Gracedew events, Gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://wonderworldinternationalschool.com/our-gallery.php"/>
+  <link rel="canonical" href="https://gracedewintsch.com/our-gallery.php"/>
 
   <meta property="og:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 
   <meta property="og:title" content="Gracedew International School | Our Services" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://wonderworldinternationalschool.com/our-gallery.php" />
-  <meta property="og:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
+  <meta property="og:url" content="https://gracedewintsch.com/our-gallery.php" />
+  <meta property="og:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
 
 
   <meta name="twitter:title" content="Gracedew International School | Our Services" />
   <meta name="twitter:site" content="@blogogua" />
-  <meta name="twitter:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
+  <meta name="twitter:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
   <meta name="twitter:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Our Services","description":"Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.","image":"https://wonderworldinternationalschool.com/assets/images/banner.jpg"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Our Services","description":"Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.","image":"https://gracedewintsch.com/assets/images/banner.jpg"}</script>
     
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/ico">
     
@@ -105,7 +105,7 @@
             
                 <div id="nanoGallery3">
                 <?php
-                    $sql = "SELECT * FROM imageuploads WHERE uniqueid = '".$uniqueid."' ";
+                    $sql = "SELECT * FROM imageuploads WHERE uniqueid = '".$uniqueid."' order by id desc";
                     $query = mysqli_query($conn,$sql);
                     $countrows = mysqli_num_rows($query);
                 ?>
@@ -126,7 +126,7 @@
                         <?php
                     }
                 ?>
-                 <a href="https://www.youtube.com/watch?v=Ir098VWCv8Q">Youtube</a>
+                 <!-- <a href="https://www.youtube.com/watch?v=Ir098VWCv8Q">Youtube</a> -->
                 </div>
             <!-- pagination -->
             <!-- <div class="pagination-style text-center mt-5">
