@@ -36,7 +36,7 @@
                         excuse. </li>
 
                         <li> Parents should provide water and
-                        fruit for theirwards. </li>
+                        fruit for their wards. </li>
 
                         <li> Children should not bring in their
                         toys. </li>

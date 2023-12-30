@@ -168,7 +168,7 @@
                                 conduct routine checks on
                                 prospective students by requesting a
                                 recommendation from their former/
-                            presentschool. </li>
+                            present school. </li>
 
                             <li>  The score marks for the entrance
                             examination should be 70% above. </li>
@@ -182,7 +182,7 @@
                             <li> Parents will be notified with an
                                 official Admission Letter from the
                                 Administrative Office when they
-                                came for the results of the entrance
+                                come for the results of the entrance
                             examination</li>
 
                             <li> There will be an invoice in the
@@ -265,7 +265,7 @@
 
                                 <li> All our staff have an appropriate level of experience, training and qualifications. </li>
 
-                                <li> Childrenare supervised atall times. </li>
+                                <li> Children are supervised at all times. </li>
 
                                 <li> We have staff who will provide individual attention to your child if the need be. </li>
 
@@ -326,9 +326,9 @@
                         </p>
 
                         <p class="wow fadeInUp" data-wow-delay="0.4s">
-                            <b>Equipment before the child starts.</b>
+                            <b>Equipment.</b>
                             <ul>
-                                <li> Our equipment and furniture are safe, approoriate, well maintained and clean. </li>
+                                <li> Our equipment and furniture are safe, appropriate, well maintained and clean. </li>
 
                                 <li> We have sufficient suitable toys, play materials and resources available to provide stimulating activities and play opportunities for the children. </li>
 

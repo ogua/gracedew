@@ -98,8 +98,7 @@
                     <p class="wow fadeInUp" data-wow-delay="0.2s">
                         At GIS, we aim to partner with parents by
 seeking parents’ views and encouraging
-parents to participate in the decision-
-making process of the service. We
+parents to participate in the decision-making process of the service. We
 undertake to ensure all complaints are
 taken seriously and dealt with fairly and
 confidentially. We will endeavour to
@@ -110,8 +109,7 @@ appropriate. </p>
 
 <p class="wow fadeInUp" data-wow-delay="0.3s">
 Children will be made aware of the
-complaints procedure in an age-
-appropriate manner. </p>
+complaints procedure in an age-appropriate manner. </p>
 
 <p class="wow fadeInUp" data-wow-delay="0.3s">
 Procedure to Be Followed If a Parent/
@@ -136,7 +134,7 @@ appropriate) to try and resolve the issue.
 This will be done at the earliest
 opportunity. </li>
 
-<li> Ifthe issue remains unresolved, it may
+<li> If the issue remains unresolved, it may
 be necessary for a third party to mediate
 for the resolution of the complaint. </li>
 
@@ -150,7 +148,6 @@ staff (as appropriate). </li>
 </p>
 
 <p class="wow fadeInUp" data-wow-delay="0.3s">
-
 GIS welcomes children’s and parents’
 views on the development of the service.
 Careful attention and a prompt and

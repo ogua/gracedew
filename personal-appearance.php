@@ -127,8 +127,8 @@ sneakers. </p>
 <b>Preschool Department</b> <br>
 A parent may choose to braid her child's
 hair. The only permitted hairstyle is cornrow all back with no hair extensions
-or accessories attached. If not, the hairis
-cutshortand kept neat. </p>
+or accessories attached. If not, the hair is
+cut short and kept neat. </p>
 
 <p class="wow fadeInUp" data-wow-delay="0.3s">
 <b>Primary/JHS Department</b> <br>
@@ -158,6 +158,8 @@ prescribed uniform is unacceptable.
 
 <p class="wow fadeInUp" data-wow-delay="0.3s">
 <b>Prescribed Uniforms</b> <br>
+
+<img src="img/prescribe.PNG" alt="Prescribe Uniform">
 
 <p class="wow fadeInUp" data-wow-delay="0.3s">
 

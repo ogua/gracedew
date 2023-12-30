@@ -96,8 +96,9 @@
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
 
                     <p class="wow fadeInUp" data-wow-delay="0.2s">It is the policy of Gracedew International School to recognize and affirm the crucial role of parents as primary educators of their children. The School is committed to being open, inclusive, welcoming, accepting and respectful of all parents
-                        who visit the school. <br>
+                        who visit the school. </p>
 
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">
                         <b>Procedure</b>
                         <ul>
                             <li> Parents must book an

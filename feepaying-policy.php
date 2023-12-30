@@ -102,9 +102,9 @@
                         Gracedew International school opens
                         five days a week, Monday to Friday. <br>
 
-                        Our daily opening times are 7am = 4pm.
+                        Our daily opening times are 7am - 4pm.
                         Each year parents are notified of planned
-                        closures atthe start of the term.
+                        closures at the start of the term.
 
                     </p>
 
@@ -205,7 +205,7 @@
                         admission fee will be charged. </p>
 
                         <p class="wow fadeInUp" data-wow-delay="0.2s">
-                        Dress Code -Children attending a
+                        Dress Code - Children attending a
                         learning experience are required to wear
                         their school uniform unless otherwise stated in the permission slip sent home
                         to parents before the learning
@@ -232,7 +232,7 @@
                         duty. During departures, children must
                         not leave the school until their
                         parent/guardian leaves as well. Children
-                        must be supervised atall times.
+                        must be supervised at all times.
                     </p>
 
                     <p class="wow fadeInUp" data-wow-delay="0.2s">
@@ -247,7 +247,7 @@
 
                         <li> Parents must notify the staff in
                         person or in writing if another
-                        person is to pick up the child. If
+                        person is to pick up the child. if
                         this person is not known to
                         staff members, they will be
                         asked for identification. </li>
@@ -264,7 +264,7 @@
                         <li> Late Pickup Charge: Pick-up
                         time is no later than 4:30pm.
                         Parents will be charged GHc
-                        20.00 per hour after 4:30pm. If
+                        20.00 per hour after 4:30pm. if
                         lateness becomes an issue,
                         parents will be called to the
                         office for new arrangements. </li>

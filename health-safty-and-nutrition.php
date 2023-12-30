@@ -123,7 +123,7 @@
                         <b>Student Health and Illness Policy </b> <br>
 
                         It is the responsibility of the parent to
-                        provide inwriting any information related
+                        provide in writing any information related
                         to chronic health conditions or food
                         allergies. They are also required to
                         inform the school in writing of any
@@ -136,20 +136,21 @@
                         Children should be kept at, or taken
                         home if suffering from one or more of the
                         following conditions:
-                        ¢ Anacute cold with fever, runny nose
+                        
+
+                        <ul>
+                            <li>An acute cold with fever, runny nose
                         and eyes, coughing and sore throat.
                         Once temperature, well-being, and
                         energy are normal, coughing and
                         runny nose may continue
                         (depending on the suspected
                         illness] without the child being
-                        contagious and the child may return to the school. <br>
+                        contagious and the child may return to the school.
                         If symptoms
                         are caused by a known allergic
                         reaction, then the child is not
-                        contagious and may attend.
-
-                        <ul>
+                        contagious and may attend.</li>
                             <li> Breathing difficulty, wheezing or a
                             persistent cough. </li>
 

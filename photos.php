@@ -126,7 +126,8 @@
                         <?php
                     }
                 ?>
-                 <!-- <a href="https://www.youtube.com/watch?v=Ir098VWCv8Q">Youtube</a> -->
+                 <a href="https://www.youtube.com/watch?v=Ir098VWCv8Q">Youtube</a>
+                  <a href="https://vimeo.com/32875422"  >Vimeo</a>
                 </div>
             <!-- pagination -->
             <!-- <div class="pagination-style text-center mt-5">
@@ -194,7 +195,7 @@
 
       jQuery("#nanoGallery3").nanoGallery({
             thumbnailWidth: 'auto',
-            thumbnailHeight: 160,
+            thumbnailHeight: 200,
                 locationHash: false,
             thumbnailHoverEffect:'borderLighter,imageScaleIn80',
             theme:'clean',
