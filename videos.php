@@ -1,33 +1,33 @@
 <?php
-  include('db/db.php');
+include('db/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Gracedew International School | Our Videos</title>
+    <title>Gracedew International School | Our Gallery - Videos</title>
     
     <meta charset="utf-8">
     <meta name="description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.">
 
-  <meta name="keywords" content="Gracedew International School, Gracedew, About Gracedew, About Gracedew International, Schools at Teshie, Gracedew, about Gracedew, Gracedew gallary, Gracedew images, Gracedew videos, Gracedew events, Gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
+    <meta name="keywords" content="Gracedew International School, Gracedew, About Gracedew, About Gracedew International, Schools at Teshie, Gracedew, about Gracedew, Gracedew gallary, Gracedew images, Gracedew videos, Gracedew events, Gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://wonderworldinternationalschool.com/our-gallery.php"/>
+    <link rel="canonical" href="https://gracedewintsch.com/our-gallery.php"/>
 
-  <meta property="og:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
+    <meta property="og:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 
-  <meta property="og:title" content="Gracedew International School | Our Services" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://wonderworldinternationalschool.com/our-gallery.php" />
-  <meta property="og:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
+    <meta property="og:title" content="Gracedew International School | Our Services" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gracedewintsch.com/our-gallery.php" />
+    <meta property="og:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
 
 
-  <meta name="twitter:title" content="Gracedew International School | Our Services" />
-  <meta name="twitter:site" content="@blogogua" />
-  <meta name="twitter:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
-  <meta name="twitter:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
+    <meta name="twitter:title" content="Gracedew International School | Our Services" />
+    <meta name="twitter:site" content="@blogogua" />
+    <meta name="twitter:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
+    <meta name="twitter:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Our Services","description":"Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.","image":"https://wonderworldinternationalschool.com/assets/images/banner.jpg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Our Services","description":"Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.","image":"https://gracedewintsch.com/assets/images/banner.jpg"}</script>
     
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/ico">
     
@@ -51,17 +51,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">    
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/nanogallery.min.css" integrity="sha512-HaGJl1RVe2w3indAm833x0NZ/IL9CJ8hEPMOHFhYkb9PcwHGxEzPKS/ZImATujRcbMWfyiBKy7+pycpzvGkwPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- nanogallery2 -->
+    <link  href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/clean/nanogallery_clean.min.css" integrity="sha512-+XSCO9D/4Q7Kuzx+XMMr7FtUY1rUVY3dmfpBG4yp0w+yi4vedvvM9v/mpJqwt9B1EPKwQpjC/U5UNP3Q11xnig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/nanogallery.woff.min.css" integrity="sha512-ApM3TWSvO5syrBiMkLJNFR7MMcKyCjDLkRgrHeCRsKw4waU0pFQcf6uFeGkcc40xeO1he7bh1sX8oxyZgOhcjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/clean/nanogallery_clean.min.css" integrity="sha512-+XSCO9D/4Q7Kuzx+XMMr7FtUY1rUVY3dmfpBG4yp0w+yi4vedvvM9v/mpJqwt9B1EPKwQpjC/U5UNP3Q11xnig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/light/nanogallery_light.min.css" integrity="sha512-4tNORj+HIrfPpPXLm2ExvyyrNxK+PRCyu1XvmRdRzcjYYFn7Uv5Qvs3FLZz5QBvfvpoTj+Wz2WlQMb2+VFduzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -83,7 +77,7 @@
         <!-- Page Header End -->
         <div class="container-xxl py-5 page-header position-relative mb-5">
             <div class="container py-5">
-                <h1 class="display-2 text-white animated slideInDown mb-4">Videos</h1>
+                <h1 class="display-2 text-white animated slideInDown mb-4">Gallery</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -95,117 +89,101 @@
         </div>
         <!-- Page Header End -->
 
-         <!-- Classes Start -->
+        <!-- Classes Start -->
         <div class="w3l-grids-block-5 py-5">
-        <div class="container py-md-5 py-4">
-            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
-                <p class="text-uppercase">Our Beautiful Moments</p>
-                <h3 class="title-style">Video Gallary</h3>
-            </div>
-            
-                <div id="nanoGallery3">
-                <?php
-                    $sql = "SELECT * FROM videouploads WHERE uniqueid = '".$uniqueid."' ";
+            <div class="container py-md-5 py-4">
+                <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                    <p class="text-uppercase">Our Beautiful Moments</p>
+                    <h3 class="title-style">Videos</h3>
+                </div>
+
+                <div id="nanogallery2" data-nanogallery2>
+                    <?php
+                    $sql = "SELECT * FROM videouploads WHERE uniqueid = '".$uniqueid."' order by id desc";
                     $query = mysqli_query($conn,$sql);
                     $countrows = mysqli_num_rows($query);
-                ?>
+                    ?>
 
-                <?php
+                    <?php
                     if($countrows > 0){
-                    while ($row = mysqli_fetch_assoc($query)) {
-                        ?>
+                        while ($row = mysqli_fetch_assoc($query)) {
+                            ?>
+                            <a href="<?php echo $row['url'];?>">Youtube</a>
 
-            
-                <a href="<?php echo $row['url'];?>" data-ngthumb="<?php echo $row['url'];?>"></a>
-            
-                 <?php
-                    }
+                            <?php
+                        }
                     }else{
                         ?>
                         <div class="alert alert-danger">No Records Found!</div>
                         <?php
                     }
-                ?>
-                 <a href="https://www.youtube.com/watch?v=Ir098VWCv8Q">Youtube</a>
+                    ?>
                 </div>
-            <!-- pagination -->
-            <!-- <div class="pagination-style text-center mt-5">
-                <ul>
-                    <li> <a href="#none" class="not-allowed" disabled="">
-                            <span class="fa fa-angle-double-left" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                    <li><a class="active" href="#page">1</a></li>
-                    <li>
-                        <a href="#page">2</a>
-                    </li>
-                    <li>
-                        <a href="#page">3</a>
-                    </li>
-                    <li>
-                        <a href="#page"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div> -->
-            <!-- //pagination -->
-    </div>
-        <!-- Classes End -->
+            </div>
+            <!-- Classes End -->
 
-        
-        <!-- Footer Start -->
-        <?php
-          include('footer.php');
-        ?>
-        <!-- Footer End -->
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
+            <!-- Footer Start -->
+            <?php
+            include('footer.php');
+            ?>
+            <!-- Footer End -->
 
-    <!-- JavaScript Libraries -->
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        </div>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="/js/jquery-3.4.1.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- simpleLightbox -->
-    <link href="/assets/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
-    <script src="/assets/js/simpleLightbox.js"></script>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/jquery.nanogallery.min.js" integrity="sha512-jSebf6hNUwUCwuXVxRXGl3SyGluTJx7NvgCA8Ewf7mgMMpDX8DLkyHkhRexhQCbFI8Ylykzvmsi/nBDuZBppKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- simpleLightbox -->
+        <link href="/assets/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
+        <script src="/assets/js/simpleLightbox.js"></script>
 
-    <script>
-        $('.proj_gallery_grid a').simpleLightbox();
-    </script>
-    <!-- //simpleLightbox -->
+        <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
+        <script>
+            $('.proj_gallery_grid a').simpleLightbox();
+        </script>
+        <!-- //simpleLightbox -->
+
+        <script>
+            $(document).ready(function () {
 
       // $("#nanoGallery3").nanoGallery({
       //     itemsBaseURL:'https://brisbois.fr/nanogallery/demonstration/'
       // });
 
-      jQuery("#nanoGallery3").nanoGallery({
-            thumbnailWidth: 'auto',
-            thumbnailHeight: 160,
-                locationHash: false,
-            thumbnailHoverEffect:'borderLighter,imageScaleIn80',
-            theme:'clean',
-            colorScheme:'light',
-            itemsBaseURL:'<?php echo $schoolurl;?>/storage/'
-          });
-
-        });
-    </script>
+                var items = [];
 
 
-</body>
 
-</html>
+
+                $("#videos").nanogallery2({
+                  items: [
+                    {
+          src:          'https://vimeo.com/32875422',                           // video url
+          srct:         'https://i.vimeocdn.com/video/222726041_1280x720.jpg',  // video thumbnail url
+          title:        'Vimeo video',                                          // video title
+          description:  'Video'                                                 // video description
+                    },
+                    { src: 'https://www.youtube.com/watch?v=Ir098VWCv8Q', title: 'Youtube video' },
+                    { src: 'http://www.dailymotion.com/video/x4wtyl6',    title: 'Dailymotion video' },
+                    ]
+              });                      
+
+            });
+        </script>
+
+
+    </body>
+
+    </html>

@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>Gracedew International School | Our Gallery</title>
+    <title>Gracedew International School | Our Gallery - Photos</title>
     
     <meta charset="utf-8">
     <meta name="description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.">
@@ -100,7 +100,7 @@
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                 <p class="text-uppercase">Our Beautiful Moments</p>
-                <h3 class="title-style">Gallary</h3>
+                <h3 class="title-style">Photos</h3>
             </div>
             
                 <div id="nanoGallery3">
@@ -126,30 +126,8 @@
                         <?php
                     }
                 ?>
-                 <a href="https://www.youtube.com/watch?v=Ir098VWCv8Q">Youtube</a>
-                  <a href="https://vimeo.com/32875422"  >Vimeo</a>
-                </div>
-            <!-- pagination -->
-            <!-- <div class="pagination-style text-center mt-5">
-                <ul>
-                    <li> <a href="#none" class="not-allowed" disabled="">
-                            <span class="fa fa-angle-double-left" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                    <li><a class="active" href="#page">1</a></li>
-                    <li>
-                        <a href="#page">2</a>
-                    </li>
-                    <li>
-                        <a href="#page">3</a>
-                    </li>
-                    <li>
-                        <a href="#page"><span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div> -->
-            <!-- //pagination -->
+
+            </div>
     </div>
         <!-- Classes End -->
 
@@ -196,7 +174,9 @@
       jQuery("#nanoGallery3").nanoGallery({
             thumbnailWidth: 'auto',
             thumbnailHeight: 200,
-                locationHash: false,
+            locationHash: false,
+            galleryDisplayTransition: 'slideUp',
+            galleryDisplayTransitionDuration:  500,
             thumbnailHoverEffect:'borderLighter,imageScaleIn80',
             theme:'clean',
             colorScheme:'light',
