@@ -87,10 +87,31 @@
 
         <!-- About Start -->
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <?php
            include('welcome-message.php');
         ?>
+
+        <!-- Why choose us -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-offset-1 col-lg-10 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="mb-4 wow fadeInUp" data-wow-delay="0.6s">Why Choose us</h1>
+                                <p class="mb-4">Gracedew International School stands out as an exemplary institution for several compelling reasons. Firstly, the school is renowned for its unwavering commitment to academic excellence. The dedicated faculty at Gracedew fosters an environment that encourages critical thinking, creativity, and a love for learning. The rigorous curriculum is designed to equip students with not only academic knowledge but also essential life skills, preparing them for the challenges of the future.</p>
+                                <p class="mb-4">Beyond academics, Gracedew International School places a strong emphasis on holistic development. The school provides a plethora of extracurricular activities, ranging from sports to arts and cultural events. This holistic approach ensures that students receive a well-rounded education, nurturing their physical, emotional, and social well-being. The school's commitment to fostering leadership qualities and character development sets it apart, shaping students into well-rounded individuals ready to contribute meaningfully to society.</p>
+                                <p class="mb-4">Moreover, Gracedew International School prioritizes a global perspective in education. The multicultural environment and diverse student body create an enriching learning experience. The school also offers international exchange programs and collaborations with institutions worldwide, exposing students to different cultures and perspectives. This global outlook prepares students to thrive in an interconnected world, making Gracedew an excellent choice for those seeking a comprehensive and globally-focused education for their children.</p>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Why choose us -->
 
         <div class="container-xxl">
             <div class="container">
@@ -139,11 +160,11 @@
 
             </div>
 
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                     <?php
-                      include('sidelinks.php');
+                      //include('sidelinks.php');
                     ?>
-            </div>
+            </div> -->
         </div>
 
         <!-- About End -->

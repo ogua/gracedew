@@ -338,12 +338,6 @@
 
                         </p>
 
-
-                        <div class="mt-4">
-                            <?php
-                                include('sidelinks.php');
-                            ?>
-                        </div>
                     </div>
                     
                 </div>

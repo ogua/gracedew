@@ -338,7 +338,7 @@ h6,
     width: 100vw;
 }
 
-.header-carousel .owl-nav .owl-prev,
+/*.header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
     margin: 7px 0;
     width: 45px;
@@ -358,7 +358,7 @@ h6,
 .header-carousel .owl-nav .owl-next:hover {
     background: var(--custom);
     border-color: var(--custom);
-}
+}*/
 
 .page-header {
     background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/carousel-11.jpg) center center no-repeat;

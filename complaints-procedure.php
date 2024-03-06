@@ -233,7 +233,7 @@ complaint is made. </li>
 
                     <div class="mt-4">
                         <?php
-                        include('sidelinks.php');
+                        //include('sidelinks.php');
                         ?>
                     </div>
                 </div>

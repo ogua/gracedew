@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-md-4">
                         <?php
-                        include('sidelinks.php');
+                        //include('sidelinks.php');
                         ?>
                 </div>
                 </div>

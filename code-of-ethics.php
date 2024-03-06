@@ -418,7 +418,7 @@ Termination of this appointment shall be preceded by the notification period of 
 
                     <div class="mt-4">
                         <?php
-                        include('sidelinks.php');
+                        //include('sidelinks.php');
                         ?>
                     </div>
                 </div>

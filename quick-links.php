@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>Gracedew International School | Communication</title>
+    <title>Gracedew International School | Quick Links</title>
     
     <meta charset="utf-8">
     <meta name="description" content="Fill out the Preliminary Inquiry form. (Add a Passport Picture of your child).">
 
     <meta name="keywords" content="Gracedew International School, Wonder World, About Wonder World, About Wonder World International, Schools at Teshie, Wonder World, about Wonder World, Wonder World gallary, Wonder World images, Wonder World videos, Wonder World events, Wonder World school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-    <link rel="canonical" href="https://wonderworldinternationalschool.com/admission-requirements.php"/>
+    <link rel="canonical" href="https://gracedewintsch.com/admission-requirements.php"/>
 
     <meta property="og:description" content="Fill out the Preliminary Inquiry form. (Add a Passport Picture of your child)." />
 
-    <meta property="og:title" content="Gracedew International School | Communication" />
+    <meta property="og:title" content="Gracedew International School | Quick Links" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wonderworldinternationalschool.com/admission-requirements.php" />
     <meta property="og:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
 
 
-    <meta name="twitter:title" content="Gracedew International School | Communication" />
+    <meta name="twitter:title" content="Gracedew International School | Quick Links" />
     <meta name="twitter:site" content="@blogogua" />
     <meta name="twitter:image" content="https://wonderworldinternationalschool.com/assets/images/banner.jpg" />
     <meta name="twitter:description" content="Fill out the Preliminary Inquiry form. (Add a Passport Picture of your child)." />
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Communication","description":"Fill out the Preliminary Inquiry form. (Add a Passport Picture of your child).","image":"https://wonderworldinternationalschool.com/assets/images/banner.jpg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Quick Links","description":"Fill out the Preliminary Inquiry form. (Add a Passport Picture of your child).","image":"https://wonderworldinternationalschool.com/assets/images/banner.jpg"}</script>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -78,7 +78,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">About Us</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Communication</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Quick Links</li>
                     </ol>
                 </nav>
             </div>
@@ -87,74 +87,30 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Communication</h1>
-                    <p></p>
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                            <h1 class="mb-3">Quick Links</h1>
+                            <!-- <p>Links</p> -->
+                        </div>
+                       
+                        <div class="mt-4">
+                            <?php
+                                include('sidelinks.php');
+                            ?>
+                        </div>
+                    </div>
+                    
                 </div>
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-
-                    <p class="wow fadeInUp" data-wow-delay="0.2s">
-                     <b> Daily communication </b> <br>
-                     Communication between parents and
-                     the headmaster is very important. The
-                     school encourages parents to let the
-                     headmaster know of any changes in a
-                     child's daily life. Please, let the school
-                     know of any concerns you or your child
-                     may have.
-
-                 </p>
-
-                 <p class="wow fadeInUp" data-wow-delay="0.3s">
-                    <b>Concerns and Questions </b> <br>
-
-                    Parents should direct any concerns and
-                    questions to the management of the
-                    school.
-
-                </p>
-
-                <p class="wow fadeInUp" data-wow-delay="0.3s">
-                    <b>Progress Report</b> <br>
-
-                    Parents will receive progress reports
-                    throughout the academic year. Teachers
-                    are available to meet with parents [on
-                    request). Please feel free to make an
-                    appointment at any time. A termly
-                    newsletter and school programme will
-                    be added to the report detailing special
-                    upcoming events.
-
-                </p>
-
-                <p class="wow fadeInUp" data-wow-delay="0.3s">
-                    <b>The Parent-Teacher Association</b> <br>
-
-                    The Gracedew International School
-                    Parent-Teacher Association [PTA] exists
-                    to support the educational choices
-                    parents have made for their children. The
-                    role of the PTA is to strengthen the
-                    triangle that children, school and
-                    parents share. All parents/guardians are
-                    automatically members of the school
-                    Parent Teacher Association.
-                </p>
-
-                <div class="mt-4">
-                    <?php
-                   // include('sidelinks.php');
-                    ?>
-                </div>
-            </div>
-        </div>
+        <!-- <div class="col-md-3">
+            <?php
+            //include('sidelinks.php');
+            ?>
+        </div> -->
     </div>
     <!-- Testimonial End -->
 
-    
+
 
 
     <!-- Footer Start -->

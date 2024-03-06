@@ -87,15 +87,13 @@
             </div>
         </div>
         <!-- Page Header End -->
-
+        
 
         <!-- Testimonial Start -->
         <?php
           include('testimonial.php');
         ?>
         <!-- Testimonial End -->
-
-        
 
 
         <!-- Footer Start -->

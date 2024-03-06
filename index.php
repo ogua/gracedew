@@ -83,8 +83,9 @@ include('db/db.php');
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-2 text-white animated slideInDown mb-4">PLAY, LEARN 'N' DEVELOP</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2"> <br></p>
-                                    <a href="contact-us.php" class="btn btn-custom rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Contact Us</a>
-                                    <a href="admission-requirements.php" class="btn btn-custom-white rounded-pill py-sm-3 px-sm-5 animated slideInRight">Enroll Now</a>
+                                    <!-- <a href="contact-us.php" class="btn btn-custom rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Contact Us</a> -->
+                                    
+                                    <!-- <a href="admission-requirements.php" class="btn btn-custom-white rounded-pill py-sm-3 px-sm-5 animated slideInRight">Enroll Now</a> -->
                                 </div>
                             </div>
                         </div>
@@ -98,8 +99,8 @@ include('db/db.php');
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-2 text-white animated slideInDown mb-4">Shaping Leaders</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">A Journey of Excellence and Integrity</p>
-                                    <a href="contact-us.php" class="btn btn-custom rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Contact Us</a>
-                                    <a href="admission-requirements.php" class="btn btn-custom-white rounded-pill py-sm-3 px-sm-5 animated slideInRight">Enroll Now</a>
+                                    <!-- <a href="contact-us.php" class="btn btn-custom rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Contact Us</a> -->
+                                    <!-- <a href="admission-requirements.php" class="btn btn-custom-white rounded-pill py-sm-3 px-sm-5 animated slideInRight">Enroll Now</a> -->
                                 </div>
                             </div>
                         </div>
@@ -113,8 +114,8 @@ include('db/db.php');
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-2 text-white animated slideInDown mb-4">Shaping Leaders</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">A Journey of Excellence and Integrity</p>
-                                    <a href="contact-us.php" class="btn btn-custom rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Contact Us</a>
-                                    <a href="admission-requirements.php" class="btn btn-custom-white rounded-pill py-sm-3 px-sm-5 animated slideInRight">Enroll Now</a>
+                                    <!-- <a href="contact-us.php" class="btn btn-custom rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Contact Us</a> -->
+                                    <!-- <a href="admission-requirements.php" class="btn btn-custom-white rounded-pill py-sm-3 px-sm-5 animated slideInRight">Enroll Now</a> -->
                                 </div>
                             </div>
                         </div>
@@ -124,9 +125,9 @@ include('db/db.php');
         </div>
         <!-- Carousel End -->
 
-        <?php
-        include('welcome-message.php');
-        ?>
+         <?php
+        //include('welcome-message.php');
+        ?> 
 
 
         <!-- Facilities Start -->
@@ -193,28 +194,6 @@ include('db/db.php');
             </div>
         </div> -->
         <!-- Facilities End -->
-
-
-        <!-- Call To Action Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-offset-1 col-lg-10 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4 wow fadeInUp" data-wow-delay="0.6s">Why Choose us</h1>
-                                <p class="mb-4">Gracedew International School stands out as an exemplary institution for several compelling reasons. Firstly, the school is renowned for its unwavering commitment to academic excellence. The dedicated faculty at Gracedew fosters an environment that encourages critical thinking, creativity, and a love for learning. The rigorous curriculum is designed to equip students with not only academic knowledge but also essential life skills, preparing them for the challenges of the future.</p>
-                                <p class="mb-4">Beyond academics, Gracedew International School places a strong emphasis on holistic development. The school provides a plethora of extracurricular activities, ranging from sports to arts and cultural events. This holistic approach ensures that students receive a well-rounded education, nurturing their physical, emotional, and social well-being. The school's commitment to fostering leadership qualities and character development sets it apart, shaping students into well-rounded individuals ready to contribute meaningfully to society.</p>
-                                <p class="mb-4">Moreover, Gracedew International School prioritizes a global perspective in education. The multicultural environment and diverse student body create an enriching learning experience. The school also offers international exchange programs and collaborations with institutions worldwide, exposing students to different cultures and perspectives. This global outlook prepares students to thrive in an interconnected world, making Gracedew an excellent choice for those seeking a comprehensive and globally-focused education for their children.</p>
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Call To Action End -->
 
 
         <!-- Classes Start -->

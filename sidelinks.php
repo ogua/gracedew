@@ -1,8 +1,8 @@
 <div class="mr-3">
     <div class="sidebar-widget sidebar-blog-category">
-        <div class="sidebar-title">
+        <!-- <div class="sidebar-title">
             <h4>Quick Links</h4>
-        </div>
+        </div> -->
         <ul class="blog-cat">
             <li><a href="admission-requirements.php">Admission Requirements</a></li>
             <li><a href="partnership-with-parents.php">Partnership With Parents</a></li>
