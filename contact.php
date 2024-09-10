@@ -101,7 +101,7 @@ Author URL: http://ogusesitsolutions.com
                                 </div>
                                 <div class="cont-right">
                                     <h6>Email Us</h6>
-                                    <p><a href="mailto:wonderworldintsch@gmail.com" class="mail">wonderworldintsch@gmail.com</a></p>
+                                    <p><a href="mailto:gracedew.int.school@gmail.com" class="mail">gracedew.int.school@gmail.com</a></p>
                                 </div>
                             </div>
                             <div class="d-flex contact-grid mt-4 pt-lg-2">
@@ -110,7 +110,7 @@ Author URL: http://ogusesitsolutions.com
                                 </div>
                                 <div class="cont-right">
                                     <h6>Customer Support</h6>
-                                    <p><a href="https://api.whatsapp.com/send?phone=+233558230501&text=Hello" target="_blank" class="mail">+233 55 823 0501</a></p>
+                                    <p><a href="https://api.whatsapp.com/send?phone=+233508077258&text=Hello" target="_blank" class="mail">+233 50 807 7258</a></p>
                                 </div>
                             </div>
                         </div>
