@@ -1,36 +1,44 @@
 <?php
-  include('db/db.php');
+include('db/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Gracedew International School | Our Gallery - Photos</title>
-    
+
     <meta charset="utf-8">
     <meta name="description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.">
 
-  <meta name="keywords" content="Gracedew International School, Gracedew, About Gracedew, About Gracedew International, Schools at Teshie, Gracedew, about Gracedew, Gracedew gallary, Gracedew images, Gracedew videos, Gracedew events, Gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
+    <meta name="keywords" content="Gracedew International School, Gracedew, About Gracedew, About Gracedew International, Schools at Teshie, Gracedew, about Gracedew, Gracedew gallary, Gracedew images, Gracedew videos, Gracedew events, Gracedew school system, oguse it solutions, oguses, OguSesITSolutions, oguaschoolz">
 
-  <link rel="canonical" href="https://gracedewintsch.com/our-gallery.php"/>
+    <link rel="canonical" href="https://gracedewintsch.com/our-gallery.php" />
 
-  <meta property="og:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
+    <meta property="og:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 
-  <meta property="og:title" content="Gracedew International School | Our Services" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://gracedewintsch.com/our-gallery.php" />
-  <meta property="og:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
+    <meta property="og:title" content="Gracedew International School | Our Services" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gracedewintsch.com/our-gallery.php" />
+    <meta property="og:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
 
 
-  <meta name="twitter:title" content="Gracedew International School | Our Services" />
-  <meta name="twitter:site" content="@blogogua" />
-  <meta name="twitter:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
-  <meta name="twitter:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
+    <meta name="twitter:title" content="Gracedew International School | Our Services" />
+    <meta name="twitter:site" content="@blogogua" />
+    <meta name="twitter:image" content="https://gracedewintsch.com/assets/images/banner.jpg" />
+    <meta name="twitter:description" content="Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others." />
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gracedew International School | Our Services","description":"Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.","image":"https://gracedewintsch.com/assets/images/banner.jpg"}</script>
-    
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Gracedew International School | Our Services",
+            "description": "Our latest gallery, images of Excursions,Carrier Day celebration,School Premises among others.",
+            "image": "https://gracedewintsch.com/assets/images/banner.jpg"
+        }
+    </script>
+
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/ico">
-    
+
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Favicon -->
 
@@ -38,7 +46,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -55,13 +63,13 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/nanogallery.min.css" integrity="sha512-HaGJl1RVe2w3indAm833x0NZ/IL9CJ8hEPMOHFhYkb9PcwHGxEzPKS/ZImATujRcbMWfyiBKy7+pycpzvGkwPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/clean/nanogallery_clean.min.css" integrity="sha512-+XSCO9D/4Q7Kuzx+XMMr7FtUY1rUVY3dmfpBG4yp0w+yi4vedvvM9v/mpJqwt9B1EPKwQpjC/U5UNP3Q11xnig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/clean/nanogallery_clean.min.css" integrity="sha512-+XSCO9D/4Q7Kuzx+XMMr7FtUY1rUVY3dmfpBG4yp0w+yi4vedvvM9v/mpJqwt9B1EPKwQpjC/U5UNP3Q11xnig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/nanogallery.woff.min.css" integrity="sha512-ApM3TWSvO5syrBiMkLJNFR7MMcKyCjDLkRgrHeCRsKw4waU0pFQcf6uFeGkcc40xeO1he7bh1sX8oxyZgOhcjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/nanogallery.woff.min.css" integrity="sha512-ApM3TWSvO5syrBiMkLJNFR7MMcKyCjDLkRgrHeCRsKw4waU0pFQcf6uFeGkcc40xeO1he7bh1sX8oxyZgOhcjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/clean/nanogallery_clean.min.css" integrity="sha512-+XSCO9D/4Q7Kuzx+XMMr7FtUY1rUVY3dmfpBG4yp0w+yi4vedvvM9v/mpJqwt9B1EPKwQpjC/U5UNP3Q11xnig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/clean/nanogallery_clean.min.css" integrity="sha512-+XSCO9D/4Q7Kuzx+XMMr7FtUY1rUVY3dmfpBG4yp0w+yi4vedvvM9v/mpJqwt9B1EPKwQpjC/U5UNP3Q11xnig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/light/nanogallery_light.min.css" integrity="sha512-4tNORj+HIrfPpPXLm2ExvyyrNxK+PRCyu1XvmRdRzcjYYFn7Uv5Qvs3FLZz5QBvfvpoTj+Wz2WlQMb2+VFduzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/css/themes/light/nanogallery_light.min.css" integrity="sha512-4tNORj+HIrfPpPXLm2ExvyyrNxK+PRCyu1XvmRdRzcjYYFn7Uv5Qvs3FLZz5QBvfvpoTj+Wz2WlQMb2+VFduzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -95,96 +103,109 @@
         </div>
         <!-- Page Header End -->
 
-         <!-- Classes Start -->
+        <!-- Classes Start -->
         <div class="w3l-grids-block-5 py-5">
-        <div class="container py-md-5 py-4">
-            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
-                <p class="text-uppercase">Our Beautiful Moments</p>
-                <h3 class="title-style">Photos</h3>
-            </div>
-            
+            <div class="container py-md-5 py-4">
+                <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                    <p class="text-uppercase">Our Beautiful Moments</p>
+                    <h3 class="title-style">Photos</h3>
+                </div>
+
                 <div id="nanoGallery3">
-                <?php
-                    $sql = "SELECT * FROM imageuploads WHERE uniqueid = '".$uniqueid."' order by id desc";
-                    $query = mysqli_query($conn,$sql);
+                    <?php
+                    $sql = "SELECT * FROM imageuploads WHERE uniqueid = '" . $uniqueid . "' ORDER BY id DESC";
+                    $query = mysqli_query($conn, $sql);
                     $countrows = mysqli_num_rows($query);
-                ?>
+                    ?>
 
-                <?php
-                    if($countrows > 0){
-                    while ($row = mysqli_fetch_assoc($query)) {
-                        ?>
+                    <?php
+                    if ($countrows > 0) {
+                        while ($row = mysqli_fetch_assoc($query)) {
+                            $images = $row['url'];
+                            $desc = $row['description'];
 
-            
-                <a href="<?php echo $row['url'];?>" data-ngthumb="<?php echo $row['url'];?>"></a>
-            
-                 <?php
-                    }
-                    }else{
+                            // Check if URL is a JSON string
+                            $decoded_images = json_decode($images, true);
+
+                            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded_images)) {
+                                // If JSON array, loop through each image
+                                foreach ($decoded_images as $image) {
+                    ?>
+                                    <a href="<?php echo $image; ?>" data-ngthumb="<?php echo $image; ?>"><?php echo $desc; ?></a>
+                                <?php
+                                }
+                            } else {
+                                // If not JSON, treat it as a single image string
+                                ?>
+                                <a href="<?php echo $images; ?>" data-ngthumb="<?php echo $images; ?>"><?php echo $desc; ?></a>
+                        <?php
+                            }
+                        }
+                    } else {
                         ?>
                         <div class="alert alert-danger">No Records Found!</div>
-                        <?php
+                    <?php
                     }
-                ?>
+                    ?>
 
+                </div>
             </div>
-    </div>
-        <!-- Classes End -->
+            <!-- Classes End -->
 
-        
-        <!-- Footer Start -->
-        <?php
-          include('footer.php');
-        ?>
-        <!-- Footer End -->
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
+            <!-- Footer Start -->
+            <?php
+            include('footer.php');
+            ?>
+            <!-- Footer End -->
 
-    <!-- JavaScript Libraries -->
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        </div>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="/js/jquery-3.4.1.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- simpleLightbox -->
-    <link href="/assets/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
-    <script src="/assets/js/simpleLightbox.js"></script>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/jquery.nanogallery.min.js" integrity="sha512-jSebf6hNUwUCwuXVxRXGl3SyGluTJx7NvgCA8Ewf7mgMMpDX8DLkyHkhRexhQCbFI8Ylykzvmsi/nBDuZBppKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- simpleLightbox -->
+        <link href="/assets/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
+        <script src="/assets/js/simpleLightbox.js"></script>
 
-    <script>
-        $('.proj_gallery_grid a').simpleLightbox();
-    </script>
-    <!-- //simpleLightbox -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery/5.10.3/jquery.nanogallery.min.js" integrity="sha512-jSebf6hNUwUCwuXVxRXGl3SyGluTJx7NvgCA8Ewf7mgMMpDX8DLkyHkhRexhQCbFI8Ylykzvmsi/nBDuZBppKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-        $(document).ready(function () {
+        <script>
+            $('.proj_gallery_grid a').simpleLightbox();
+        </script>
+        <!-- //simpleLightbox -->
 
-      // $("#nanoGallery3").nanoGallery({
-      //     itemsBaseURL:'https://brisbois.fr/nanogallery/demonstration/'
-      // });
+        <script>
+            $(document).ready(function() {
 
-      jQuery("#nanoGallery3").nanoGallery({
-            thumbnailWidth: 'auto',
-            thumbnailHeight: 200,
-            locationHash: false,
-            galleryDisplayTransition: 'slideUp',
-            galleryDisplayTransitionDuration:  500,
-            thumbnailHoverEffect:'borderLighter,imageScaleIn80',
-            theme:'clean',
-            colorScheme:'light',
-            itemsBaseURL:'<?php echo $schoolurl;?>/storage/'
-          });
+                // $("#nanoGallery3").nanoGallery({
+                //     itemsBaseURL:'https://brisbois.fr/nanogallery/demonstration/'
+                // });
 
-        });
-    </script>
+                jQuery("#nanoGallery3").nanoGallery({
+                    thumbnailWidth: 'auto',
+                    thumbnailHeight: 200,
+                    locationHash: false,
+                    galleryDisplayTransition: 'slideUp',
+                    galleryDisplayTransitionDuration: 500,
+                    thumbnailHoverEffect: 'borderLighter,imageScaleIn80',
+                    theme: 'clean',
+                    colorScheme: 'light',
+                    itemsBaseURL: '<?php echo $schoolurl; ?>/storage/'
+                });
+
+            });
+        </script>
 
 
 </body>
