@@ -151,7 +151,7 @@
                                 <h3 class="mb-4">Core Values</h3>
                                 <p class="mb-4">
                                 <ul>
-                                    <li> Christian </li>
+                                    <li> Christianity </li>
                                     <li> Love </li>
                                     <li> Integrity </li>
                                     <li> Security </li>
