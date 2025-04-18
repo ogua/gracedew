@@ -1,15 +1,15 @@
 <!-- About Start -->
 <div class="container-xxl py-5">
-<div class="container">
-<div class="row g-5 avlign-items-center">
-<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-<h1 class="mb-4 text-center">Welcome to Gracedew International School</h1>
-<p>We're thrilled you're interested in joining our vibrant community of learners.</p>
+    <div class="container">
+        <div class="row g-5 avlign-items-center">
+            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-4 text-center">Welcome to Gracedew International School</h1>
+                <p>We're thrilled you're interested in joining our vibrant community of learners.</p>
 
-<p>At gracedew, we empower students to achieve academic excellence, develop character, and become global citizens.</p>
-<p>Explore our site to discover how we nurture minds and inspire futures</p>
+                <p>At gracedew, we empower students to achieve academic excellence, develop character, and become global citizens.</p>
+                <p>Explore our site to discover how we nurture minds and inspire futures</p>
 
-<!-- <p>We are delighted that you have enrolled
+                <!-- <p>We are delighted that you have enrolled
 your precious child with us here at
 Gracedew International School. We are
 committed to making your child's
@@ -81,15 +81,15 @@ confidence, strengthen their self-
 esteem and independence and above all,
 have fun and enjoy the experience..</p> -->
 
-<!-- <div class="row g-4 align-items-center">
+                <!-- <div class="row g-4 align-items-center">
 <div class="col-sm-6">
 <a class="btn btn-custom rounded-pill py-3 px-5" href="about-us.php">Read More</a>
 </div>
 
 </div> -->
-</div>
+            </div>
 
-</div>
-</div>
+        </div>
+    </div>
 </div>
 <!-- About End -->
