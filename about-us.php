@@ -99,7 +99,51 @@
                 
 
                 <!-- Why choose us -->
+
                 <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="bg-light rounded">
+                            <div class="row g-0">
+                                <div class="col-lg-offset-1 col-lg-10 wow fadeIn" data-wow-delay="0.6s">
+                                    <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                        <h1 class="mb-4 wow fadeInUp" data-wow-delay="0.6s">Short History About the Late CEO</h1>
+                                        <p class="mb-4">Madam Dorothy Asare Bediako was a visionary educator and leader, born on August 16, 1952. Her legacy continues to inspire and nurture young minds through Gracedew International School, which she founded in 2001                                        </p>
+                                        <!-- <p class="mb-4"></p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-xxl">
+                    <div class="container">
+                        <div class="row g-5 avlign-items-center">
+                            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                                <h3 class="mb-4">Founded of Gracedew International School</h3>
+                                <p class="mb-4">
+                                She founded Gracedew International School in 2001</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container-xxl">
+                    <div class="container">
+                        <div class="row g-5 avlign-items-center">
+                            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                                <h3 class="mb-4">Early Life and Career</h3>
+                                <p class="mb-4">
+                                Madam Dorothy Asare Bediako was born on August 16, 1952.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="container-xxl py-5">
                     <div class="container">
                         <div class="bg-light rounded">
                             <div class="row g-0">
@@ -116,15 +160,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Why choose us -->
 
                 <div class="container-xxl">
                     <div class="container">
                         <div class="row g-5 avlign-items-center">
                             <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
-                                <h3 class="mb-4">Mission Statement</h3>
-                                <p class="mb-4">To provide high-quality education and childcare in a safe, respectful and inclusive environment that builds a foundation for lifelong learning.</p>
+                                <h3 class="mb-4">Vision and Mission</h3>
+                                <p class="mb-4">Madam Dorothy's vision for Gracedew International School was to create a community where children feel loved, respected, and empowered to reach their full potential. The school's mission reflects her commitment to providing high-quality education and childcare in a safe, respectful, and inclusive environment.                                </p>
                             </div>
 
                         </div>
@@ -132,7 +176,7 @@
                 </div>
 
 
-                <div class="container-xxl">
+                <!-- <div class="container-xxl">
                     <div class="container">
                         <div class="row g-5 avlign-items-center">
                             <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
@@ -142,13 +186,27 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+                <!-- <div class="container-xxl">
+                    <div class="container">
+                        <div class="row g-5 avlign-items-center">
+                            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                                <h3 class="mb-4">Vision Statement</h3>
+                                <p class="mb-4">To provide a community where all children feel loved, respected and encouraged to develop to their fullest potential.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> -->
 
                 <div class="container-xxl">
                     <div class="container">
                         <div class="row g-5 avlign-items-center">
                             <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <h3 class="mb-4">Core Values</h3>
+                                <p>The values that guided Madam Dorothy's leadership and the school's culture are:
+                                </p>
                                 <p class="mb-4">
                                 <ul>
                                     <li> Christianity </li>
@@ -163,6 +221,35 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="container-xxl">
+                    <div class="container">
+                        <div class="row g-5 avlign-items-center">
+                            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                                <h3 class="mb-4">Leadership and Legacy</h3>
+                                <p class="mb-4">Madam Dorothy was known for her high standards and attention to detail. She expected excellence from teachers, learners, and staff, and her perfectionism helped establish a culture of excellence at Gracedew International School. Her love for children was evident in the way learners responded to her presence, feeling happy and at ease around her.                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container-xxl">
+                    <div class="container">
+                        <div class="row g-5 avlign-items-center">
+                            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                                <p class="mb-4">Madam Dorothy's legacy continues to inspire and motivate the Gracedew International School community. Her memory will be cherished, and her vision for education will live on through the countless lives she touched.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
 
             </div>
 
