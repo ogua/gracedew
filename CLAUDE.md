@@ -263,11 +263,11 @@ rendering.
   directly; the `ErrorDocument`/rewrite/caching directives need verification under real Apache
   before launch.
 
-**Still open** (not addressed this pass): the content conflicts and gaps flagged earlier
-(address, core-values list, missing staff/facility photos, real production domain), individual
-news/blog article pages (current `news.php` is a single filterable listing, not per-article
-URLs — fine for now given the volume of content, revisit if the school wants shareable article
-links).
+**Still open**: the content conflicts and gaps flagged earlier (address, core-values list,
+missing staff/facility photos — the real production domain is no longer open, see the
+`https://oguaschoolz.com` fix above), and individual news/blog article pages (current `news.php`
+is a single filterable listing, not per-article URLs — fine for now given the volume of content,
+revisit if the school wants shareable article links).
 
 ## Phase 6 progress — Lighthouse audit (accessibility / performance)
 
@@ -328,6 +328,77 @@ That's standard, expected behavior for any site embedding real YouTube content, 
 don't mistake it for one if this audit is re-run and gallery.php's score looks worse than other
 pages. One more color-contrast instance (`text-ink-900/50`, used for news-card date/location
 text) was caught during this sweep and fixed the same way as the others above.
+
+## Phase 7 — visual redesign pass (v2): distinct identity, real navigation, forms, real content
+
+Prompted by direct feedback that v1 (a) visually read as a reskin of the old site rather than a
+new design, (b) had form fields with no visible outline, (c) had a flat/plain admission stepper,
+(d) had a nav that didn't match the brief's suggested structure, and (e) was missing real pages
+the legacy site had. All five addressed:
+
+**Palette v2** (`src/input.css` `@theme`) — the maroon (`#98291e`) is kept, since it's
+brand-validated by the real logo, but everything else changed: v1's dark sections used the old
+site's exact navy (`#103741`, its `--dark`) and light sections used its exact blush-pink
+(`#FFF5F3`, its `--light`) — both lifted verbatim from the old CSS, which is exactly why it read
+as a reskin. Dark sections now use `brand-900`/`brand-950`, a deep maroon-black extension of the
+*same* brand scale (ties every dark surface to the one real brand color instead of a second,
+old-site-specific hue); light sections use a warm cream `brand-50`; a new `gold-400/500/600`
+accent (present nowhere on the old site) is used for stat numbers, hero dividers, and the primary
+hero CTA button (`.btn-gold`). Hero and inner-page header bands also got a `.clip-angle-b`
+diagonal-cut silhouette — a shape the old site's plain rectangular sections never had.
+
+**Forms** — v1 styled each input individually with `border-black/10` (10% opacity — effectively
+invisible), which is exactly why fields looked outline-less. Fixed structurally, not per-field:
+`src/input.css`'s `@layer base` now styles every bare `input`/`select`/`textarea` with a real
+2px border, padding, and a visible focus ring, so new fields are correct by default and can't
+repeat the mistake. `admissions/apply.php` and `contact.php` had their per-field
+`border-black/10` classes stripped accordingly.
+
+**Admission stepper** (`admissions/apply.php`) — replaced the plain text-label progress row with
+numbered circles (`.step-circle`) connected by a fill-in progress line: filled + checkmarked for
+completed steps, outlined for the current step, muted for upcoming ones, plus a mobile-only
+"Step X of 5: Label" line. Verified interactively (filled step 1, advanced, confirmed the circle
+filled/checked and the line animated, then verified Back navigation preserves entered data) —
+this is a visual change layered on top of the *already-fixed* CLS/x-cloak architecture from the
+Lighthouse pass above; don't reintroduce `x-cloak` on the outer `<form>` or step 0's div when
+touching this again.
+
+**Navigation** — v1 was a flat list (Home/About/Academics/Admissions/Gallery/News/Contact) that
+didn't match the brief's suggested dropdown IA. Now: **About** ▾ (Our Story/Mission &amp;
+Vision/Core Values — anchor links into `about.php`; Why Choose Us — anchor into `index.php`),
+**Admissions** ▾ (Admission Requirements/Apply Online), **School Life** ▾ (Facilities/Gallery/
+Parent Resources — the two new pages below). Academics, News, Contact stay flat single links
+since there's no real second destination behind them yet — dropdowns were added only where
+genuine distinct content exists, not to pad out the menu. Implemented with Alpine
+(`menu`/`mobileMenu` state on the `<header>`, `@click.outside` to close, `Escape` key support);
+mobile nav mirrors the same three groups as accordions rather than a flat link dump. Both
+verified interactively (desktop dropdown opens/closes correctly; mobile accordion expands the
+right group).
+
+**Two new pages**, closing the "legacy pages missing" gap:
+- `facilities.php` — real content from admission-requirements.php's "Premises"/"Equipment"/
+  "Security" sections (not generic facilities copy), plus gallery photos filtered to category
+  `'2'` (School Premises).
+- `resources.php` ("Parent Resources") — a single hub page with a sticky in-page table of
+  contents, covering Partnership With Parents, Communication, Daily Life (arrival times,
+  absences, pick-up), Uniform &amp; Personal Appearance, Health/Safety/Nutrition, Fee Paying
+  Policy, Complaints Procedure, and the School Pledge/Anthem — all real content extracted
+  verbatim from the corresponding legacy pages, then condensed for a marketing-site audience.
+  **Deliberately excluded**: the legacy site's full staff Code of Ethics (salary deduction
+  amounts, dismissal criteria, working-hour enforcement — internal HR policy, not something a
+  prospective parent needs to see) and the most heavy disciplinary/legal sections of
+  `student-and-staff-responsibility-and-dress-code.php` (weapons, drugs, alcohol procedures).
+  Both are genuinely real school content and *should* still reach families — admission-
+  requirements.php already states the school provides a full Student/Parent Handbook at
+  admission, so that's the right vehicle for them, not the first-impression public marketing
+  site. If the school wants that content published publicly anyway, it's fully preserved in the
+  original legacy files at `C:\xampp\htdocs\Projects\website\gracedew\` — nothing was deleted,
+  only selectively not carried over into the new site.
+
+Both new pages, and the redesigned nav/stepper, were re-verified with the same Lighthouse sweep
+as above — full site is back to 100 Accessibility on every page (two new contrast misses and one
+heading-order skip introduced during this pass were caught and fixed the same session, not left
+for later).
 
 ## Do Not
 

@@ -102,7 +102,7 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
 
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-brand-500 focus:text-white focus:px-4 focus:py-2">Skip to content</a>
 
-<header x-data="{ open: false }" class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-black/5">
+<header x-data="{ open: false, menu: null, mobileMenu: null }" @keydown.escape="menu = null" class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-black/5">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="/index.php" class="flex items-center gap-3">
             <img src="/asset/images/logo.png" alt="Gracedew International School logo" class="h-14 w-auto" width="57" height="56">
@@ -112,14 +112,52 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
             </span>
         </a>
 
-        <nav class="hidden lg:flex items-center gap-8 font-medium">
-            <a href="/index.php" class="hover:text-brand-500 <?= $current_path === 'index.php' ? 'text-brand-500' : '' ?>">Home</a>
-            <a href="/about.php" class="hover:text-brand-500">About</a>
-            <a href="/academics.php" class="hover:text-brand-500">Academics</a>
-            <a href="/admissions/index.php" class="hover:text-brand-500">Admissions</a>
-            <a href="/gallery.php" class="hover:text-brand-500">Gallery</a>
-            <a href="/news.php" class="hover:text-brand-500">News</a>
-            <a href="/contact.php" class="hover:text-brand-500">Contact</a>
+        <nav class="hidden lg:flex items-center gap-1 font-medium">
+            <a href="/index.php" class="rounded-md px-3 py-2 hover:text-brand-500 <?= $current_path === 'index.php' ? 'text-brand-500' : '' ?>">Home</a>
+
+            <!-- About dropdown -->
+            <div class="relative" @click.outside="menu = (menu === 'about') ? null : menu">
+                <button type="button" class="flex items-center gap-1 rounded-md px-3 py-2 hover:text-brand-500" @click="menu = (menu === 'about') ? null : 'about'" :aria-expanded="menu === 'about'">
+                    About
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform" :class="menu === 'about' && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div x-show="menu === 'about'" x-cloak x-transition.opacity.duration.150ms class="absolute left-0 top-full mt-1 w-56 rounded-xl border border-black/5 bg-white py-2 shadow-lg">
+                    <a href="/about.php#story" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Our Story</a>
+                    <a href="/about.php#mission" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Mission &amp; Vision</a>
+                    <a href="/about.php#values" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Core Values</a>
+                    <a href="/index.php#why-us" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Why Choose Us</a>
+                </div>
+            </div>
+
+            <a href="/academics.php" class="rounded-md px-3 py-2 hover:text-brand-500">Academics</a>
+
+            <!-- Admissions dropdown -->
+            <div class="relative" @click.outside="menu = (menu === 'admissions') ? null : menu">
+                <button type="button" class="flex items-center gap-1 rounded-md px-3 py-2 hover:text-brand-500" @click="menu = (menu === 'admissions') ? null : 'admissions'" :aria-expanded="menu === 'admissions'">
+                    Admissions
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform" :class="menu === 'admissions' && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div x-show="menu === 'admissions'" x-cloak x-transition.opacity.duration.150ms class="absolute left-0 top-full mt-1 w-56 rounded-xl border border-black/5 bg-white py-2 shadow-lg">
+                    <a href="/admissions/index.php" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Admission Requirements</a>
+                    <a href="/admissions/apply.php" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Apply Online</a>
+                </div>
+            </div>
+
+            <!-- School Life dropdown -->
+            <div class="relative" @click.outside="menu = (menu === 'life') ? null : menu">
+                <button type="button" class="flex items-center gap-1 rounded-md px-3 py-2 hover:text-brand-500" @click="menu = (menu === 'life') ? null : 'life'" :aria-expanded="menu === 'life'">
+                    School Life
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform" :class="menu === 'life' && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div x-show="menu === 'life'" x-cloak x-transition.opacity.duration.150ms class="absolute left-0 top-full mt-1 w-56 rounded-xl border border-black/5 bg-white py-2 shadow-lg">
+                    <a href="/facilities.php" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Facilities</a>
+                    <a href="/gallery.php" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Gallery</a>
+                    <a href="/resources.php" class="block px-4 py-2 text-sm hover:bg-brand-50 hover:text-brand-600">Parent Resources</a>
+                </div>
+            </div>
+
+            <a href="/news.php" class="rounded-md px-3 py-2 hover:text-brand-500">News</a>
+            <a href="/contact.php" class="rounded-md px-3 py-2 hover:text-brand-500">Contact</a>
         </nav>
 
         <div class="hidden lg:block">
@@ -134,16 +172,46 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
         </button>
     </div>
 
+    <!-- Mobile nav: accordion-style groups, not a flat dump of links -->
     <nav id="mobile-nav" x-show="open" x-cloak x-transition class="lg:hidden border-t border-black/5 bg-white px-4 py-4">
-        <div class="flex flex-col gap-3 font-medium">
-            <a href="/index.php" class="py-1">Home</a>
-            <a href="/about.php" class="py-1">About</a>
-            <a href="/academics.php" class="py-1">Academics</a>
-            <a href="/admissions/index.php" class="py-1">Admissions</a>
-            <a href="/gallery.php" class="py-1">Gallery</a>
-            <a href="/news.php" class="py-1">News</a>
-            <a href="/contact.php" class="py-1">Contact</a>
-            <a href="/admissions/apply.php" class="btn-primary mt-2 justify-center">Apply for Admission</a>
+        <div class="flex flex-col gap-1 font-medium">
+            <a href="/index.php" class="py-2">Home</a>
+
+            <button type="button" class="flex items-center justify-between py-2 text-left" @click="mobileMenu = (mobileMenu === 'about') ? null : 'about'">
+                About
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="mobileMenu === 'about' && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="mobileMenu === 'about'" x-cloak x-transition class="ml-3 flex flex-col gap-1 border-l border-black/10 pl-3 text-sm text-ink-900/75">
+                <a href="/about.php#story" class="py-1.5">Our Story</a>
+                <a href="/about.php#mission" class="py-1.5">Mission &amp; Vision</a>
+                <a href="/about.php#values" class="py-1.5">Core Values</a>
+                <a href="/index.php#why-us" class="py-1.5">Why Choose Us</a>
+            </div>
+
+            <a href="/academics.php" class="py-2">Academics</a>
+
+            <button type="button" class="flex items-center justify-between py-2 text-left" @click="mobileMenu = (mobileMenu === 'admissions') ? null : 'admissions'">
+                Admissions
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="mobileMenu === 'admissions' && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="mobileMenu === 'admissions'" x-cloak x-transition class="ml-3 flex flex-col gap-1 border-l border-black/10 pl-3 text-sm text-ink-900/75">
+                <a href="/admissions/index.php" class="py-1.5">Admission Requirements</a>
+                <a href="/admissions/apply.php" class="py-1.5">Apply Online</a>
+            </div>
+
+            <button type="button" class="flex items-center justify-between py-2 text-left" @click="mobileMenu = (mobileMenu === 'life') ? null : 'life'">
+                School Life
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="mobileMenu === 'life' && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div x-show="mobileMenu === 'life'" x-cloak x-transition class="ml-3 flex flex-col gap-1 border-l border-black/10 pl-3 text-sm text-ink-900/75">
+                <a href="/facilities.php" class="py-1.5">Facilities</a>
+                <a href="/gallery.php" class="py-1.5">Gallery</a>
+                <a href="/resources.php" class="py-1.5">Parent Resources</a>
+            </div>
+
+            <a href="/news.php" class="py-2">News</a>
+            <a href="/contact.php" class="py-2">Contact</a>
+            <a href="/admissions/apply.php" class="btn-primary mt-3 justify-center">Apply for Admission</a>
         </div>
     </nav>
 </header>

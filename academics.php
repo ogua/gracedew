@@ -61,9 +61,9 @@ $programmeCopy = [
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="bg-ink-900 py-16 text-white">
+<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p class="eyebrow text-brand-100">Academics</p>
+        <p class="eyebrow-gold">Academics</p>
         <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Our Academic Programmes</h1>
         <p class="mt-4 max-w-2xl text-white/80">
             A student-centered curriculum from Crèche through Junior High School, built to

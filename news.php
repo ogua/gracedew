@@ -11,9 +11,9 @@ usort($news, fn ($a, $b) => strtotime($b['date'] ?? 'now') <=> strtotime($a['dat
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="bg-ink-900 py-16 text-white">
+<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p class="eyebrow text-brand-100">News &amp; Events</p>
+        <p class="eyebrow-gold">News &amp; Events</p>
         <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Stay Informed</h1>
         <p class="mt-4 max-w-2xl text-white/80">Announcements, stories, and upcoming events from around our school.</p>
     </div>

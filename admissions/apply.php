@@ -12,14 +12,33 @@ require __DIR__.'/../includes/header.php';
 <section class="section" x-data="admissionForm()">
     <div class="mx-auto max-w-3xl">
 
-        <!-- Step progress -->
-        <ol class="flex items-center justify-between text-xs sm:text-sm" x-show="!submitted">
+        <div class="text-center" x-show="!submitted">
+            <p class="eyebrow">Online Admission</p>
+            <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Apply to Gracedew</h1>
+            <p class="mt-2 text-ink-900/70">Five short steps — most families finish in under 10 minutes.</p>
+        </div>
+
+        <!-- Step progress: numbered circles + connecting line, not just text
+             labels — the original plain-text stepper read as an afterthought
+             rather than a proper multi-step form. -->
+        <ol class="mt-10 flex items-start" x-show="!submitted">
             <template x-for="(label, i) in steps" :key="i">
-                <li class="flex-1 text-center" :class="i > 0 ? 'border-t-2 pt-3 -ml-px' : 'pt-3'" :style="i > 0 ? 'border-color: ' + (i <= step ? '#98291e' : '#e5e5e5') : ''">
-                    <span class="font-medium" :class="i === step ? 'text-brand-500' : (i < step ? 'text-ink-900' : 'text-ink-900/70')" x-text="label"></span>
+                <li class="flex flex-1 items-center last:flex-none">
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="step-circle"
+                              :class="i < step
+                                  ? 'border-brand-500 bg-brand-500 text-white'
+                                  : (i === step ? 'border-brand-500 text-brand-600' : 'border-ink-900/15 text-ink-900/65')">
+                            <svg x-show="i < step" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span x-show="i >= step" x-text="i + 1"></span>
+                        </span>
+                        <span class="hidden text-center text-xs font-medium sm:block" :class="i === step ? 'text-brand-600' : 'text-ink-900/65'" x-text="label"></span>
+                    </div>
+                    <div class="mx-2 h-0.5 flex-1 sm:mx-3" :class="i < step ? 'bg-brand-500' : 'bg-ink-900/10'" x-show="i < steps.length - 1"></div>
                 </li>
             </template>
         </ol>
+        <p class="mt-3 text-center text-sm font-medium text-brand-600 sm:hidden" x-show="!submitted" x-text="'Step ' + (step + 1) + ' of ' + steps.length + ': ' + steps[step]"></p>
 
         <!-- Error banner -->
         <div x-show="error" x-cloak class="mt-6 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700" x-text="error"></div>
@@ -46,19 +65,19 @@ require __DIR__.'/../includes/header.php';
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
                         <span class="text-sm font-medium">Surname *</span>
-                        <input type="text" x-model="form.surname" required class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.surname" required class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">First name *</span>
-                        <input type="text" x-model="form.firstname" required class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.firstname" required class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Other names</span>
-                        <input type="text" x-model="form.onames" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.onames" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Gender *</span>
-                        <select x-model="form.gender" required class="mt-1 w-full rounded-lg border-black/10">
+                        <select x-model="form.gender" required class="mt-1.5">
                             <option value="">Select</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -66,32 +85,32 @@ require __DIR__.'/../includes/header.php';
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Date of birth *</span>
-                        <input type="date" x-model="form.dateofbirth" required class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="date" x-model="form.dateofbirth" required class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Place of birth</span>
-                        <input type="text" x-model="form.placeofbirth" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.placeofbirth" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Nationality</span>
-                        <input type="text" x-model="form.nationality" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.nationality" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Hometown</span>
-                        <input type="text" x-model="form.hometown" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.hometown" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Religion</span>
-                        <input type="text" x-model="form.religion" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.religion" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Disability / support needs</span>
-                        <input type="text" x-model="form.disability" placeholder="Leave blank if none" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.disability" placeholder="Leave blank if none" class="mt-1.5">
                     </label>
                 </div>
                 <label class="block">
                     <span class="text-sm font-medium">Medical information</span>
-                    <textarea x-model="form.medicalinfo" rows="3" placeholder="Allergies, conditions, medication, etc." class="mt-1 w-full rounded-lg border-black/10"></textarea>
+                    <textarea x-model="form.medicalinfo" rows="3" placeholder="Allergies, conditions, medication, etc." class="mt-1.5"></textarea>
                 </label>
             </div>
 
@@ -101,27 +120,27 @@ require __DIR__.'/../includes/header.php';
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
                         <span class="text-sm font-medium">Full name *</span>
-                        <input type="text" x-model="form.guardian_name" required class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.guardian_name" required class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Relationship to applicant *</span>
-                        <input type="text" x-model="form.guardian_relationship" placeholder="e.g. Mother, Father, Guardian" required class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.guardian_relationship" placeholder="e.g. Mother, Father, Guardian" required class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Phone number *</span>
-                        <input type="tel" x-model="form.guardian_phone" required class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="tel" x-model="form.guardian_phone" required class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Email</span>
-                        <input type="email" x-model="form.guardian_email" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="email" x-model="form.guardian_email" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Occupation</span>
-                        <input type="text" x-model="form.guardian_occupation" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.guardian_occupation" class="mt-1.5">
                     </label>
                     <label class="block sm:col-span-2">
                         <span class="text-sm font-medium">Home address</span>
-                        <input type="text" x-model="form.guardian_address" class="mt-1 w-full rounded-lg border-black/10">
+                        <input type="text" x-model="form.guardian_address" class="mt-1.5">
                     </label>
                 </div>
             </div>
@@ -131,7 +150,7 @@ require __DIR__.'/../includes/header.php';
                 <h2 class="text-xl font-bold">Programme / Class Selection</h2>
                 <label class="block max-w-sm">
                     <span class="text-sm font-medium">Entry level *</span>
-                    <select x-model="form.entrylevel" required class="mt-1 w-full rounded-lg border-black/10">
+                    <select x-model="form.entrylevel" required class="mt-1.5">
                         <option value="">Select a class</option>
                         <?php foreach ($classes as $c): ?>
                             <option value="<?= (int) $c['id'] ?>"><?= htmlspecialchars($c['name']) ?></option>
@@ -150,19 +169,19 @@ require __DIR__.'/../includes/header.php';
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
                         <span class="text-sm font-medium">Passport photograph</span>
-                        <input type="file" name="pic" accept="image/*" @change="form.pic = $event.target.files[0]" class="mt-1 w-full text-sm">
+                        <input type="file" name="pic" accept="image/*" @change="form.pic = $event.target.files[0]" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Birth certificate</span>
-                        <input type="file" name="document_birth_certificate" accept="image/*,.pdf" @change="form.document_birth_certificate = $event.target.files[0]" class="mt-1 w-full text-sm">
+                        <input type="file" name="document_birth_certificate" accept="image/*,.pdf" @change="form.document_birth_certificate = $event.target.files[0]" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Previous school report</span>
-                        <input type="file" name="document_previous_report" accept="image/*,.pdf" @change="form.document_previous_report = $event.target.files[0]" class="mt-1 w-full text-sm">
+                        <input type="file" name="document_previous_report" accept="image/*,.pdf" @change="form.document_previous_report = $event.target.files[0]" class="mt-1.5">
                     </label>
                     <label class="block">
                         <span class="text-sm font-medium">Other document</span>
-                        <input type="file" name="document_other" accept="image/*,.pdf" @change="form.document_other = $event.target.files[0]" class="mt-1 w-full text-sm">
+                        <input type="file" name="document_other" accept="image/*,.pdf" @change="form.document_other = $event.target.files[0]" class="mt-1.5">
                     </label>
                 </div>
             </div>

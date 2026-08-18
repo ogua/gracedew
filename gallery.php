@@ -22,9 +22,9 @@ $categoriesPresent = array_unique(array_filter(
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="bg-ink-900 py-16 text-white">
+<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p class="eyebrow text-brand-100">Gallery</p>
+        <p class="eyebrow-gold">Gallery</p>
         <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Life at Gracedew</h1>
         <p class="mt-4 max-w-2xl text-white/80">A look at our campus, classrooms, and community in action.</p>
     </div>

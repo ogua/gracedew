@@ -1,24 +1,47 @@
 @import "tailwindcss";
 
 /*
- * Gracedew's design tokens. Brand color (#98291e) and type system (Heebo /
- * Inter / Lobster Two) come from what's actually live on the old site
- * (css/style.css), not its vestigial Bootstrap-template defaults — see
- * CLAUDE.md's "Design System / Branding" section.
+ * Gracedew's design tokens — v2.
+ *
+ * The brand maroon (#98291e) is kept: it's not a guess, it's validated by
+ * the school's own real logo (asset/images/logo.png), whose linework is
+ * almost exactly this color. But v1 of this palette also copied the old
+ * site's dark navy (#103741, its `--dark`) for hero/footer/stats sections
+ * and its blush-pink (#FFF5F3, its `--light`) for alternating section
+ * backgrounds — both lifted verbatim from the old site's css/style.css
+ * :root block. That made the "redesign" visually read as a reskin, not a
+ * new design: same two-tone maroon+navy identity, same pink-tinted light
+ * sections, just rearranged.
+ *
+ * v2 keeps ONLY the brand-validated maroon and rebuilds everything else:
+ * dark sections now use a deep maroon-black extension of the SAME brand
+ * scale (brand-900) instead of an unrelated navy — ties every dark surface
+ * back to the one real brand color instead of introducing a second hue the
+ * old site happened to use. A new gold/amber accent (not present anywhere
+ * on the old site) gives the palette a second color the old site never
+ * had, for stat numbers, dividers, and small accents. Light sections use a
+ * warm cream instead of the old site's pink-tinted blush.
  */
 @theme {
   --font-sans: "Heebo", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Lobster Two", ui-serif, Georgia, cursive;
 
-  --color-brand-50: #fdf3f1;
-  --color-brand-100: #f8ddd8;
+  --color-brand-50: #f9f2e7;
+  --color-brand-100: #f0e0c8;
   --color-brand-400: #b8493a;
   --color-brand-500: #98291e;
   --color-brand-600: #7f2119;
   --color-brand-700: #661a14;
+  --color-brand-800: #4a130f;
+  --color-brand-900: #33100d;
+  --color-brand-950: #200a08;
 
-  --color-ink-50: #eef4f5;
-  --color-ink-900: #103741;
+  --color-gold-300: #e3bd77;
+  --color-gold-400: #d1a24f;
+  --color-gold-500: #b8862f;
+  --color-gold-600: #966a22;
+
+  --color-ink-900: #2b2420;
 }
 
 @layer base {
@@ -34,20 +57,45 @@
     @apply font-display;
   }
 
-  /*
-   * Required for Alpine's x-cloak to do anything — without this rule,
-   * every x-cloak element (mobile nav, lightbox, form success/error states,
-   * step-by-step admission form) is visible in its default HTML state until
-   * Alpine finishes loading from the CDN and evaluates x-show, causing a
-   * flash of wrongly-visible content and real layout shift on every page.
-   */
+  /* Visible-by-default form controls — see the "Forms" note in CLAUDE.md:
+     v1 relied on a per-field `border-black/10` utility class (10% opacity
+     on black — effectively invisible) repeated on every input, which is
+     exactly why fields looked outline-less. Defining it once here means
+     every input/select/textarea gets a real, visible border and focus
+     state automatically, and it can't be forgotten on a new field. */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="file"],
+  select,
+  textarea {
+    @apply w-full rounded-lg border-2 border-ink-900/20 bg-white px-4 py-2.5 text-ink-900 placeholder:text-ink-900/40 transition-colors duration-150;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="date"]:focus,
+  input[type="file"]:focus,
+  select:focus,
+  textarea:focus {
+    @apply outline-none border-brand-500 ring-2 ring-brand-500/15;
+  }
+
+  /* File inputs need their own visible "button" affordance, or the browser
+     default reads as a bare unstyled control floating inside the border. */
+  input[type="file"] {
+    @apply cursor-pointer py-2 text-sm file:mr-4 file:cursor-pointer file:rounded-md file:border-0 file:bg-brand-50 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-brand-600 hover:file:bg-brand-100;
+  }
+
   [x-cloak] {
     display: none !important;
   }
 }
 
 @layer components {
-  .btn, .btn-primary, .btn-outline, .btn-outline-brand {
+  .btn, .btn-primary, .btn-outline, .btn-outline-brand, .btn-gold {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
   }
 
@@ -56,11 +104,15 @@
   }
 
   .btn-outline {
-    @apply border-2 border-white text-white hover:bg-white hover:text-brand-600;
+    @apply border-2 border-white text-white hover:bg-white hover:text-brand-700;
   }
 
   .btn-outline-brand {
     @apply border-2 border-brand-500 text-brand-600 hover:bg-brand-500 hover:text-white;
+  }
+
+  .btn-gold {
+    @apply bg-gold-500 text-brand-950 hover:bg-gold-400;
   }
 
   .section {
@@ -71,8 +123,27 @@
     @apply text-sm font-semibold uppercase tracking-widest text-brand-500;
   }
 
+  .eyebrow-gold {
+    @apply text-sm font-semibold uppercase tracking-widest text-gold-400;
+  }
+
   .card {
     @apply rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow duration-200 hover:shadow-lg;
+  }
+
+  /* Distinctive angled break on dark section bottoms (hero, stats band) —
+     a deliberate silhouette the old site's plain-rectangle sections never
+     had, so a dark full-width band doesn't just read as "the same hero
+     shape, different color". Use sparingly: one clipped edge per page. */
+  .clip-angle-b {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+  }
+
+  /* Step-progress indicator for the admission form — numbered circles with
+     a connecting line, not just plain text labels (see CLAUDE.md: the
+     original stepper was flagged as poorly designed for exactly this). */
+  .step-circle {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 font-display text-base transition-colors duration-200;
   }
 }
 

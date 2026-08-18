@@ -16,7 +16,7 @@ require __DIR__.'/includes/header.php';
 
 <!-- Hero -->
 <section class="relative" x-data="{ slide: 0, count: <?= count($banners) ?: 1 ?> }" x-init="setInterval(() => slide = (slide + 1) % count, 6000)">
-    <div class="relative h-[70vh] min-h-[480px] w-full overflow-hidden bg-ink-900">
+    <div class="clip-angle-b relative h-[75vh] min-h-[520px] w-full overflow-hidden bg-brand-900">
         <?php if ($banners): ?>
             <?php foreach ($banners as $i => $banner): ?>
                 <img src="<?= htmlspecialchars($banner['image']) ?>" alt=""
@@ -24,13 +24,16 @@ require __DIR__.'/includes/header.php';
                      x-show="slide === <?= $i ?>" x-transition:enter.opacity.duration.1000ms x-cloak>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="absolute inset-0 bg-gradient-to-br from-brand-600 to-ink-900"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-700 to-brand-950"></div>
         <?php endif; ?>
-        <div class="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/30 to-ink-900/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-900/45 to-brand-900/15"></div>
 
-        <div class="relative flex h-full max-w-7xl mx-auto flex-col justify-end px-4 pb-16 sm:px-6 lg:px-8">
-            <p class="eyebrow text-brand-100">Est. 2001 &middot; Kotobabi, Accra</p>
-            <h1 class="mt-3 max-w-2xl text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+        <div class="relative flex h-full max-w-7xl mx-auto flex-col justify-end px-4 pb-24 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3">
+                <span class="h-px w-10 bg-gold-400"></span>
+                <p class="text-sm font-semibold uppercase tracking-widest text-gold-400">Est. 2001 &middot; Kotobabi, Accra</p>
+            </div>
+            <h1 class="mt-4 max-w-2xl text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
                 Empowering Minds. Shaping Leaders.
             </h1>
             <p class="mt-4 max-w-xl text-lg text-white/85">
@@ -38,15 +41,15 @@ require __DIR__.'/includes/header.php';
                 where every child is known, loved, and challenged to reach their full potential.
             </p>
             <div class="mt-8 flex flex-wrap gap-4">
-                <a href="/admissions/apply.php" class="btn-primary">Apply for Admission</a>
+                <a href="/admissions/apply.php" class="btn-gold">Apply for Admission</a>
                 <a href="/about.php" class="btn-outline">Explore Our School</a>
             </div>
         </div>
 
         <?php if (count($banners) > 1): ?>
-        <div class="absolute bottom-6 right-6 flex gap-2">
+        <div class="absolute bottom-10 right-6 flex gap-2 sm:right-8">
             <?php foreach ($banners as $i => $banner): ?>
-                <button @click="slide = <?= $i ?>" class="h-2.5 w-2.5 rounded-full bg-white transition-opacity" :class="slide === <?= $i ?> ? 'opacity-100' : 'opacity-40'" aria-label="Go to slide <?= $i + 1 ?>"></button>
+                <button @click="slide = <?= $i ?>" class="h-2.5 w-2.5 rounded-full transition-colors" :class="slide === <?= $i ?> ? 'bg-gold-400' : 'bg-white/40'" aria-label="Go to slide <?= $i + 1 ?>"></button>
             <?php endforeach; ?>
         </div>
         <?php endif; ?>
@@ -82,7 +85,7 @@ require __DIR__.'/includes/header.php';
 </section>
 
 <!-- Why Choose Us -->
-<section class="bg-brand-50">
+<section id="why-us" class="scroll-mt-24 bg-brand-50">
     <div class="section">
         <p class="eyebrow">Why Gracedew</p>
         <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Why Families Choose Us</h2>
@@ -106,7 +109,7 @@ require __DIR__.'/includes/header.php';
 
 <!-- Stats -->
 <section class="section">
-    <div class="grid grid-cols-2 gap-8 rounded-3xl bg-ink-900 px-6 py-12 text-center text-white sm:grid-cols-4">
+    <div class="grid grid-cols-2 gap-8 rounded-3xl bg-brand-900 px-6 py-12 text-center text-white sm:grid-cols-4">
         <?php
         $statBlocks = [
             ['students', 'Students Enrolled'],
@@ -116,7 +119,7 @@ require __DIR__.'/includes/header.php';
         ];
         foreach ($statBlocks as [$key, $label]): ?>
             <div>
-                <div class="text-4xl font-bold text-brand-100"><?= (int) ($stats[$key] ?? 0) ?>+</div>
+                <div class="font-display text-4xl text-gold-400"><?= (int) ($stats[$key] ?? 0) ?>+</div>
                 <div class="mt-1 text-sm text-white/70"><?= htmlspecialchars($label) ?></div>
             </div>
         <?php endforeach; ?>

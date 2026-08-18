@@ -9,16 +9,16 @@ $gallery = array_slice(gd_api_get('gallery'), 0, 3);
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="bg-ink-900 py-16 text-white">
+<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p class="eyebrow text-brand-100">About Gracedew</p>
+        <p class="eyebrow-gold">About Gracedew</p>
         <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Our Story</h1>
         <p class="mt-4 max-w-2xl text-white/80">A community built on love, excellence, and integrity since 2001.</p>
     </div>
 </section>
 
 <!-- Founder / History -->
-<section class="section grid gap-12 lg:grid-cols-2 lg:items-center">
+<section id="story" class="section scroll-mt-24 grid gap-12 lg:grid-cols-2 lg:items-center">
     <div>
         <p class="eyebrow">Our History</p>
         <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Founded on a Vision of Care</h2>
@@ -46,7 +46,7 @@ require __DIR__.'/includes/header.php';
 </section>
 
 <!-- Mission & Vision -->
-<section class="bg-brand-50">
+<section id="mission" class="scroll-mt-24 bg-brand-50">
     <div class="section grid gap-8 md:grid-cols-2">
         <div class="card p-8">
             <p class="eyebrow">Our Mission</p>
@@ -69,7 +69,7 @@ require __DIR__.'/includes/header.php';
 </section>
 
 <!-- Core Values -->
-<section class="section">
+<section id="values" class="section scroll-mt-24">
     <p class="eyebrow">What We Stand For</p>
     <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Our Core Values</h2>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
