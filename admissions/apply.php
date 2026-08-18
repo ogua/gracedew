@@ -16,7 +16,7 @@ require __DIR__.'/../includes/header.php';
         <ol class="flex items-center justify-between text-xs sm:text-sm" x-show="!submitted">
             <template x-for="(label, i) in steps" :key="i">
                 <li class="flex-1 text-center" :class="i > 0 ? 'border-t-2 pt-3 -ml-px' : 'pt-3'" :style="i > 0 ? 'border-color: ' + (i <= step ? '#98291e' : '#e5e5e5') : ''">
-                    <span class="font-medium" :class="i === step ? 'text-brand-500' : (i < step ? 'text-ink-900' : 'text-ink-900/40')" x-text="label"></span>
+                    <span class="font-medium" :class="i === step ? 'text-brand-500' : (i < step ? 'text-ink-900' : 'text-ink-900/70')" x-text="label"></span>
                 </li>
             </template>
         </ol>
