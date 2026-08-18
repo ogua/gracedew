@@ -400,6 +400,40 @@ as above — full site is back to 100 Accessibility on every page (two new contr
 heading-order skip introduced during this pass were caught and fixed the same session, not left
 for later).
 
+## Phase 7b — legacy footer parity, address correction, legal pages
+
+Prompted by a screenshot of the legacy site's actual footer. Checked `gracedew/footer.php`
+(the legacy source) directly rather than going off memory:
+
+- **Address corrected**: the site had been showing `Abeibee Street C20A/12, Kotobabi, P.O. Box
+  4913, Accra` (sourced from a single mention in admission-requirements.php's meta tags).
+  The legacy `footer.php` *and* `contact-us.php` both independently agree on
+  `Abeibee Street 20, Kotobabi-Accra, GA-043-4401` — two-source agreement beats one, so that's
+  now the fallback in `includes/footer.php`, `contact.php`, and the JSON-LD in
+  `includes/header.php` (added `postalCode: GA-043-4401` there too, since GA-043-4401 is a Ghana
+  Post GPS digital address, not a street number). **Still ultimately worth the school
+  confirming** — this is corroborated-from-old-content, not confirmed by the school directly.
+- **Social icons**: confirmed against the legacy source that only Facebook was ever a real link
+  there too (Twitter `href="#"`, YouTube `href=""`, Instagram `href="#"` — all placeholders on
+  the old site as well). No change needed — this codebase's existing Instagram/YouTube/TikTok/X
+  placeholders-with-TODO already match that reality.
+- **Footer "Photo Gallery" grid added** (`includes/footer.php`) — a 6-photo grid pulled live from
+  `/gallery`, matching the legacy footer's own "Photo Gallery" column (it used 6 hardcoded
+  `img/classes-*.jpg` files; this pulls real current photos from the API instead).
+- **`privacy.php` and `terms.php` added** — neither existed on the legacy site; these are new.
+  Written to describe what *this specific site* actually does (the three real forms, the fact
+  submissions go straight to oguaschoolz with nothing stored locally, Ghana's Data Protection
+  Act 2012 reference) rather than generic boilerplate. Both carry a small disclaimer that they
+  haven't been reviewed by outside legal counsel — reasonable for a first pass, but flag to the
+  school that real legal review is worth doing before launch, especially given the site collects
+  children's personal data (photos, birth certificates) through the admission form. Linked from
+  the footer's bottom bar and added to `sitemap.xml`.
+
+All of the above re-verified: full lint pass, all 12 pages return 200 with no PHP
+warnings/errors, and `privacy.php`/`terms.php` score 100/100/100/100 and 100/77/100/100
+respectively on Lighthouse (same known local-environment Best Practices artifact as everywhere
+else).
+
 ## Do Not
 
 - Do not modify `oguaschoolz`'s existing Passport-protected routes/controllers or its Encore

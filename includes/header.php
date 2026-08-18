@@ -91,8 +91,9 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
         'sameAs' => ['https://www.facebook.com/GracedewSch'],
         'address' => [
             '@type' => 'PostalAddress',
-            'streetAddress' => $school['postaladd'] ?? 'Abeibee Street, Kotobabi',
-            'addressLocality' => 'Accra',
+            'streetAddress' => $school['postaladd'] ?? 'Abeibee Street 20',
+            'addressLocality' => 'Kotobabi, Accra',
+            'postalCode' => 'GA-043-4401',
             'addressCountry' => 'GH',
         ],
     ], JSON_UNESCAPED_SLASHES) ?>

@@ -24,7 +24,7 @@ require __DIR__.'/includes/header.php';
             </span>
             <div>
                 <h2 class="font-semibold">Address</h2>
-                <p class="mt-1 text-ink-900/70"><?= htmlspecialchars($school['postaladd'] ?? 'Abeibee Street C20A/12, Kotobabi, P.O. Box 4913, Accra') ?></p>
+                <p class="mt-1 text-ink-900/70"><?= htmlspecialchars($school['postaladd'] ?? 'Abeibee Street 20, Kotobabi-Accra, GA-043-4401') ?></p>
             </div>
         </div>
         <div class="card flex items-start gap-4 p-6">

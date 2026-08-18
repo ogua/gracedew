@@ -6,12 +6,15 @@
  */
 $school = $school ?? gd_api_get('school');
 $logo_url = $logo_url ?? ($school['logo'] ?? '/asset/images/logo.png');
+// Small photo grid, matching the legacy footer's "Photo Gallery" column —
+// real campus photos, not decorative stock images.
+$footer_gallery = array_slice(gd_api_get('gallery'), 0, 6);
 ?>
 </main>
 
 <footer class="bg-brand-900 text-white">
     <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
             <div class="md:col-span-2 lg:col-span-2">
                 <div class="flex items-center gap-3">
                     <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white p-1.5">
@@ -56,10 +59,23 @@ $logo_url = $logo_url ?? ($school['logo'] ?? '/asset/images/logo.png');
                 </ul>
             </div>
 
+            <?php if ($footer_gallery): ?>
+            <div>
+                <h3 class="font-semibold">Photo Gallery</h3>
+                <div class="mt-3 grid grid-cols-3 gap-1.5">
+                    <?php foreach ($footer_gallery as $img): ?>
+                        <a href="/gallery.php" class="block aspect-square overflow-hidden rounded-md bg-white/10">
+                            <img src="<?= htmlspecialchars($img['url']) ?>" alt="<?= htmlspecialchars($img['title'] ?? 'Gracedew campus life') ?>" class="h-full w-full object-cover" loading="lazy">
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endif; ?>
+
             <div>
                 <h3 class="font-semibold">Contact</h3>
                 <ul class="mt-3 space-y-2 text-white/70">
-                    <li><?= htmlspecialchars($school['postaladd'] ?? 'Abeibee Street, Kotobabi, Accra') ?></li>
+                    <li><?= htmlspecialchars($school['postaladd'] ?? 'Abeibee Street 20, Kotobabi-Accra, GA-043-4401') ?></li>
                     <li><a href="mailto:gracedew.int.school@gmail.com" class="hover:text-white">gracedew.int.school@gmail.com</a></li>
                     <li><a href="https://wa.me/233508077258" class="hover:text-white">WhatsApp: +233 50 807 7258</a></li>
                 </ul>
@@ -89,7 +105,11 @@ $logo_url = $logo_url ?? ($school['logo'] ?? '/asset/images/logo.png');
 
         <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; <?= date('Y') ?> Gracedew International School. All rights reserved.</p>
-            <p>Est. 2001 &middot; Kotobabi, Accra</p>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                <a href="/privacy.php" class="hover:text-white">Privacy Policy</a>
+                <a href="/terms.php" class="hover:text-white">Terms of Use</a>
+                <span>Est. 2001 &middot; Kotobabi, Accra</span>
+            </div>
         </div>
     </div>
 </footer>
