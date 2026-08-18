@@ -49,7 +49,18 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    <!--
+      Two separate requests, deliberately different font-display strategies:
+      Heebo/Inter (body/UI text) use `swap` — their fallback (system-ui) has
+      similar-enough metrics that the swap-triggered reflow is minor.
+      Lobster Two (headings, a decorative script very unlike its serif
+      fallback) uses `optional` instead — it either loads in time to paint
+      with no swap, or the page keeps the fallback for that view, trading
+      brand fidelity for zero layout shift. Confirmed via a performance
+      trace that Lobster Two's swap was a real CLS culprit on this site.
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=optional" rel="stylesheet">
 
     <link href="/css/app.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

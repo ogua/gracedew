@@ -33,6 +33,17 @@
   h1, h2, h3, h4 {
     @apply font-display;
   }
+
+  /*
+   * Required for Alpine's x-cloak to do anything — without this rule,
+   * every x-cloak element (mobile nav, lightbox, form success/error states,
+   * step-by-step admission form) is visible in its default HTML state until
+   * Alpine finishes loading from the CDN and evaluates x-show, causing a
+   * flash of wrongly-visible content and real layout shift on every page.
+   */
+  [x-cloak] {
+    display: none !important;
+  }
 }
 
 @layer components {
