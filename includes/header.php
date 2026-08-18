@@ -50,15 +50,26 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!--
-      Two separate requests, deliberately different font-display strategies:
-      Heebo/Inter (body/UI text) use `swap` — their fallback (system-ui) has
-      similar-enough metrics that the swap-triggered reflow is minor.
-      Lobster Two (headings, a decorative script very unlike its serif
-      fallback) uses `optional` instead — it either loads in time to paint
-      with no swap, or the page keeps the fallback for that view, trading
-      brand fidelity for zero layout shift. Confirmed via a performance
-      trace that Lobster Two's swap was a real CLS culprit on this site.
+      Confirmed via a real performance trace (4x CPU / Slow 4G) that font
+      loading was this site's dominant CLS culprit (~0.32, "Bad") — the
+      default HTML -> Google Fonts CSS -> font-file discovery chain means
+      the font file request doesn't start until the CSS has round-tripped.
+      Preloading the actual current font files (URLs copied from that
+      trace) lets them start downloading immediately in parallel, which is
+      the real fix; the split font-display strategy below (optional for the
+      decorative, very-unlike-its-fallback Lobster Two heading font; swap
+      for Heebo/Inter, whose fallback is close enough that swapping barely
+      shifts anything) is a smaller secondary mitigation on top of that.
+      CAVEAT: these href values are Google's current hashed font-version
+      URLs and will go stale whenever Google revs that font's version —
+      re-derive them (view page source, or re-run this same performance
+      trace) if layout-shift regresses; self-hosting the font files instead
+      would remove this fragility if it becomes a maintenance burden.
     -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="https://fonts.gstatic.com/s/heebo/v28/NGS6v5_NC0k9P9H2TbFhsqMA.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="https://fonts.gstatic.com/s/lobstertwo/v22/BngRUXZGTXPUvIoyV6yN5-92w7CGwR2oefDo.woff2">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=optional" rel="stylesheet">
 
@@ -94,7 +105,7 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
 <header x-data="{ open: false }" class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-black/5">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="/index.php" class="flex items-center gap-3">
-            <img src="/asset/images/logo.png" alt="Gracedew International School logo" class="h-14 w-auto">
+            <img src="/asset/images/logo.png" alt="Gracedew International School logo" class="h-14 w-auto" width="57" height="56">
             <span class="hidden sm:block leading-tight">
                 <span class="block font-semibold text-ink-900">Gracedew International School</span>
                 <span class="block text-xs text-ink-900/70"><?= htmlspecialchars($school['schoolmoto'] ?? "Play, Learn 'n' Develop") ?></span>

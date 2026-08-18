@@ -14,7 +14,7 @@ $logo_url = $logo_url ?? ($school['logo'] ?? '/asset/images/logo.png');
         <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
             <div class="md:col-span-2 lg:col-span-2">
                 <div class="flex items-center gap-3">
-                    <img src="/asset/images/logo.jpg" alt="Gracedew International School logo" class="h-12 w-auto">
+                    <img src="/asset/images/logo.png" alt="Gracedew International School logo" class="h-12 w-auto" width="48" height="47">
                     <span class="font-display text-2xl">Gracedew International School</span>
                 </div>
                 <p class="mt-3 max-w-sm text-white/70">

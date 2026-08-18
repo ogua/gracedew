@@ -14,7 +14,7 @@ than by restyling the old templates.
 
 | Path | What it is |
 |---|---|
-| `C:\xampp\htdocs\Projects\oguaschoolz` | **Integration target.** Legacy Laravel 8.75 school-management SaaS (Passport auth API + Encore Admin panel). Gracedew is tenant `uniqueid = 'admin'` (`schools.id = 9`) in its database. |
+| `C:\xampp\htdocs\Projects\oguaschoolz` | **Integration target.** Legacy Laravel 8.75 school-management SaaS (Passport auth API + Encore Admin panel). Gracedew is `schools.id = 9`; its **production** `uniqueid` is `e6ddc0c0-2e7e-4735-bfe1-4ee02f53834f` — local dev's database has the same `id` but under `uniqueid = 'admin'` instead, holding unrelated test data (see below). |
 | `C:\xampp\htdocs\Projects\oguaschoolv2` | A newer Laravel 12 / Filament v4 rewrite of the same product, sharing the same physical database as oguaschoolz. It already has a full admissions workflow and CMS tables (news/events/testimonials) that oguaschoolz lacks. **Explicitly not the integration target for this project** — that's a deliberate decision, not an oversight. Do not point new code at it. |
 
 ## Current State
@@ -23,7 +23,9 @@ Only scaffolding exists here: empty `asset/images/`, `asset/video/`, `css/`, `js
 `db/db.php` with a placeholder MySQL connection (currently references a stale "Wonder World
 International School" comment block — that comment is leftover noise, ignore it; the connection
 itself, once corrected, is real: it points at the same `oguaschoolz` database and `uniqueid`
-tenant key described below). No pages, design system, or components have been built yet.
+tenant key described below). No pages, design system, or components have been built yet. (This
+section describes the original scaffold-only state — see Phase 4/6 progress further down for
+what's actually built now.)
 
 ## Backend Integration Architecture — Phase 3 (API) built and smoke-tested
 
@@ -54,10 +56,13 @@ audit already flagged:
 - The **local dev database's `uniqueid='admin'` tenant currently holds unrelated test/seed
   data** — school name comes back as "BOSTON INTERNATIONAL ACADEMY" with nonsense
   location fields ("Antigua and Barbuda"), not Gracedew. The earlier-audited `database.sql`
-  dump showed a real "Gracedew International School" row at this same `uniqueid`/`id=9`, so this
-  is dev-environment drift since that dump, not a sign `uniqueid='admin'` is wrong — the school
-  `id` (9) still matches. **Before pointing this website at any real environment, confirm which
-  database actually holds live Gracedew data** — don't assume local dev reflects it.
+  dump showed a real "Gracedew International School" row at this same `id=9`, so this is
+  dev-environment drift since that dump, not a sign the tenant key is wrong for local testing —
+  the school `id` (9) still matches. **Confirmed: production's real Gracedew tenant `uniqueid`
+  is `e6ddc0c0-2e7e-4735-bfe1-4ee02f53834f`**, not `'admin'` — `'admin'` is a local-dev-only
+  stand-in. `db/db.php`'s `GD_UNIQUEID` defaults to the real production value now;
+  `db/config.local.php` overrides it to `'admin'` for local dev (see the Phase 4 local dev setup
+  notes below).
 
 New files added in oguaschoolz (all additive — nothing existing was removed or renamed):
 - `app/Http/Controllers/V1/Website/{WebsiteContentController,WebsiteAdmissionController,WebsiteContactController}.php`
@@ -71,8 +76,9 @@ New files added in oguaschoolz (all additive — nothing existing was removed or
 - Routes appended to the end of `routes/api.php` under `api/v1/public/*`
 
 **As built.** Base path: `{OGUASCHOOLZ_URL}/api/v1/public`, all endpoints take `uniqueid` (query
-param on GETs, form field on POSTs) — hardcode `admin` for Gracedew in this site's server-side
-config only (e.g. `db/config.php`), never in frontend JS.
+param on GETs, form field on POSTs) — set via `GD_UNIQUEID` in `db/db.php` (production default:
+`e6ddc0c0-2e7e-4735-bfe1-4ee02f53834f`, overridden to `admin` in `db/config.local.php` for local
+dev) in this site's server-side config only, never in frontend JS.
 
 | Method | Path | Auth | Notes |
 |---|---|---|---|
@@ -211,10 +217,11 @@ oguaschoolz's database, then deleted as test data.
 **Local dev setup**: the developer's machine runs oguaschoolz locally at `oguaschool.com:7000`
 (hosts-file entry + a persistent dev server on that port — **not** `php artisan serve` on an
 arbitrary port). Copy `db/config.local.example.php` to `db/config.local.php`, uncomment
-`GD_API_BASE` to `http://oguaschool.com:7000/api/v1/public`, and set a real `WEBSITE_API_TOKEN`
-matching oguaschoolz's `.env`. **Don't change `db/db.php`'s production default away from the
-no-port URL** — local dev needs the port, production doesn't; that split is intentional and
-belongs in `config.local.php`, not in the committed default.
+`GD_API_BASE` to `http://oguaschool.com:7000/api/v1/public`, set a real `WEBSITE_API_TOKEN`
+matching oguaschoolz's `.env`, and uncomment `GD_UNIQUEID` to `'admin'` (local dev's database
+doesn't have the real production tenant row). **Don't change `db/db.php`'s production defaults**
+(no-port URL, `GD_UNIQUEID = 'e6ddc0c0-2e7e-4735-bfe1-4ee02f53834f'`) — local dev's overrides
+belong in `config.local.php`, not in the committed defaults.
 
 **Known local-only cosmetic issue**: images (banners, gallery, logo, etc.) will appear broken
 when browsing this site locally. The API's image URLs are generated by oguaschoolz's own

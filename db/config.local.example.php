@@ -13,3 +13,8 @@ define('GD_API_TOKEN', 'paste-the-real-token-here');
 // Local oguaschoolz runs on :7000; production has no port — don't change
 // db.php's default to match local, override it here instead.
 // define('GD_API_BASE', 'http://oguaschool.com:7000/api/v1/public');
+
+// Local dev's database doesn't have Gracedew's real tenant row — it has
+// test data under uniqueid='admin' at the same schools.id instead. Uncomment
+// when developing locally; don't change db.php's production default to match.
+// define('GD_UNIQUEID', 'admin');

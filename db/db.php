@@ -24,8 +24,14 @@ if (! defined('GD_API_BASE')) {
     define('GD_API_BASE', 'http://oguaschool.com/api/v1/public');
 }
 
-// Gracedew's tenant key in oguaschoolz (schools.uniqueid = 'admin', schools.id = 9).
-define('GD_UNIQUEID', 'admin');
+if (! defined('GD_UNIQUEID')) {
+    // Gracedew's tenant key in production oguaschoolz (schools.id = 9). Local
+    // dev's database has this same id under uniqueid='admin' instead (with
+    // unrelated test data) — db/config.local.php overrides this constant to
+    // 'admin' rather than this default being changed, so production stays
+    // correct.
+    define('GD_UNIQUEID', 'e6ddc0c0-2e7e-4735-bfe1-4ee02f53834f');
+}
 
 if (! defined('GD_API_TOKEN')) {
     define('GD_API_TOKEN', '');

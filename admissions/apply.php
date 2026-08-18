@@ -24,7 +24,21 @@ require __DIR__.'/../includes/header.php';
         <!-- Error banner -->
         <div x-show="error" x-cloak class="mt-6 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700" x-text="error"></div>
 
-        <form x-show="!submitted" x-cloak @submit.prevent="submitForm" class="mt-8 space-y-8" enctype="multipart/form-data">
+        <!--
+          Deliberately NOT x-cloak'd on this <form> itself: cloaking the
+          whole multi-hundred-pixel form until Alpine loads was confirmed
+          (via a PerformanceObserver injected directly into the page) to be
+          this form's dominant CLS culprit — the form rendered near-zero
+          height, then "popped in" at full size once Alpine initialized.
+          Step 0's div below is deliberately left uncloaked too, since it's
+          visible by default in raw HTML pre-Alpine anyway — which already
+          matches its correct initial state (step 0 IS what should show
+          first), so there's nothing to hide. Steps 1-4 keep x-cloak since
+          their correct initial state genuinely is hidden, and by the time a
+          user could ever reveal them (clicking Continue), Alpine is
+          necessarily already loaded — that click handler is Alpine's.
+        -->
+        <form x-show="!submitted" @submit.prevent="submitForm" class="mt-8 space-y-8" enctype="multipart/form-data">
 
             <!-- Step 1: Applicant -->
             <div x-show="step === 0" class="card p-6 sm:p-8 space-y-5">
@@ -82,7 +96,7 @@ require __DIR__.'/../includes/header.php';
             </div>
 
             <!-- Step 2: Guardian -->
-            <div x-show="step === 1" class="card p-6 sm:p-8 space-y-5">
+            <div x-show="step === 1" x-cloak class="card p-6 sm:p-8 space-y-5">
                 <h2 class="text-xl font-bold">Parent / Guardian Information</h2>
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
@@ -113,7 +127,7 @@ require __DIR__.'/../includes/header.php';
             </div>
 
             <!-- Step 3: Programme -->
-            <div x-show="step === 2" class="card p-6 sm:p-8 space-y-5">
+            <div x-show="step === 2" x-cloak class="card p-6 sm:p-8 space-y-5">
                 <h2 class="text-xl font-bold">Programme / Class Selection</h2>
                 <label class="block max-w-sm">
                     <span class="text-sm font-medium">Entry level *</span>
@@ -130,7 +144,7 @@ require __DIR__.'/../includes/header.php';
             </div>
 
             <!-- Step 4: Documents -->
-            <div x-show="step === 3" class="card p-6 sm:p-8 space-y-5">
+            <div x-show="step === 3" x-cloak class="card p-6 sm:p-8 space-y-5">
                 <h2 class="text-xl font-bold">Supporting Documents</h2>
                 <p class="text-sm text-ink-900/70">Photos/scans accepted as JPG, PNG, or PDF, up to 5MB each. All optional here — you can also bring physical copies at assessment.</p>
                 <div class="grid gap-5 sm:grid-cols-2">
@@ -154,7 +168,7 @@ require __DIR__.'/../includes/header.php';
             </div>
 
             <!-- Step 5: Review -->
-            <div x-show="step === 4" class="card p-6 sm:p-8 space-y-4">
+            <div x-show="step === 4" x-cloak class="card p-6 sm:p-8 space-y-4">
                 <h2 class="text-xl font-bold">Review Your Application</h2>
                 <dl class="divide-y divide-black/5 text-sm">
                     <template x-for="row in reviewRows()" :key="row[0]">
@@ -172,10 +186,10 @@ require __DIR__.'/../includes/header.php';
 
             <!-- Nav buttons -->
             <div class="flex justify-between">
-                <button type="button" @click="back" x-show="step > 0" class="btn-outline-brand">Back</button>
+                <button type="button" @click="back" x-show="step > 0" x-cloak class="btn-outline-brand">Back</button>
                 <span x-show="step === 0"></span>
                 <button type="button" @click="next" x-show="step < steps.length - 1" class="btn-primary">Continue</button>
-                <button type="submit" x-show="step === steps.length - 1" :disabled="submitting" class="btn-primary">
+                <button type="submit" x-show="step === steps.length - 1" x-cloak :disabled="submitting" class="btn-primary">
                     <span x-show="!submitting">Submit Application</span>
                     <span x-show="submitting">Submitting…</span>
                 </button>
