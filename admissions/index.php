@@ -45,7 +45,7 @@ require __DIR__.'/../includes/header.php';
         <p class="mt-2 text-sm text-ink-900/70">Our online application takes about 10 minutes.
             You'll get a reference number and a printable copy immediately after submitting.</p>
         <a href="/admissions/apply.php" class="btn-primary mt-6 w-full">Start Application</a>
-        <p class="mt-4 text-xs text-ink-900/50">Have questions first? <a href="/contact.php" class="underline">Contact admissions</a>.</p>
+        <p class="mt-4 text-xs text-ink-900/70">Have questions first? <a href="/contact.php" class="underline">Contact admissions</a>.</p>
     </aside>
 </section>
 

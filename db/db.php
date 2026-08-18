@@ -18,10 +18,14 @@ if (file_exists($gd_local_config)) {
 }
 
 if (! defined('GD_API_BASE')) {
-    // Production default (oguaschoolz's APP_URL — no port there). Local dev
-    // runs oguaschoolz on :7000; override GD_API_BASE in db/config.local.php
-    // rather than changing this default, so production stays correct.
-    define('GD_API_BASE', 'http://oguaschool.com/api/v1/public');
+    // Production default (oguaschoolz's real APP_URL). Confirmed live via
+    // direct HTTPS request — 'oguaschool.com' (no z) was only ever the local
+    // dev machine's hosts-file alias for the same backend and was wrongly
+    // carried over here; it doesn't serve this API in production (expired
+    // cert, no valid response). Local dev overrides this in
+    // db/config.local.php rather than this default being changed, so
+    // production stays correct.
+    define('GD_API_BASE', 'https://oguaschoolz.com/api/v1/public');
 }
 
 if (! defined('GD_UNIQUEID')) {

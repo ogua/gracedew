@@ -63,6 +63,21 @@ audit already flagged:
   stand-in. `db/db.php`'s `GD_UNIQUEID` defaults to the real production value now;
   `db/config.local.php` overrides it to `'admin'` for local dev (see the Phase 4 local dev setup
   notes below).
+- A second, separate bug found the same day: `db/db.php`'s production `GD_API_BASE` default was
+  `http://oguaschool.com` (no z) — that's only ever been the local dev machine's hosts-file alias
+  for oguaschoolz (see Phase 4 local dev setup below), wrongly copied into the "production"
+  default. **Confirmed via direct external HTTPS requests: the real live oguaschoolz API is at
+  `https://oguaschoolz.com`** (with a z) — `oguaschool.com` doesn't serve this API in production
+  (expired cert, no valid response). Combined with the wrong `GD_UNIQUEID` above, this meant the
+  live website's every API call silently failed/returned empty, which is why the gallery, stats,
+  news, and testimonials all appeared empty in production despite the site otherwise working.
+  `db/db.php` now defaults to `https://oguaschoolz.com/api/v1/public`. **Also note**: production
+  deploys to the live server are a manual `git pull` on the server (no CI/CD) — a fix committed
+  here has no effect until that pull happens, and a `db/config.local.php` accidentally present on
+  the production server would silently override these correct defaults back to the wrong ones (it
+  should never exist there — it's gitignored/local-dev-only). Don't confuse it with
+  `db/config.local.example.php`, which has no effect at runtime no matter what's written into it —
+  `db/db.php` only ever loads `config.local.php`.
 
 New files added in oguaschoolz (all additive — nothing existing was removed or renamed):
 - `app/Http/Controllers/V1/Website/{WebsiteContentController,WebsiteAdmissionController,WebsiteContactController}.php`
@@ -252,7 +267,67 @@ rendering.
 (address, core-values list, missing staff/facility photos, real production domain), individual
 news/blog article pages (current `news.php` is a single filterable listing, not per-article
 URLs — fine for now given the volume of content, revisit if the school wants shareable article
-links), and a full accessibility/performance audit (Lighthouse et al.) hasn't been run.
+links).
+
+## Phase 6 progress — Lighthouse audit (accessibility / performance)
+
+Ran Lighthouse (desktop) + real performance traces (4x CPU / Slow 4G throttled, to surface
+issues invisible on a fast local connection) against `index.php` and `admissions/apply.php`.
+**Current scores: Accessibility 100, SEO 100, Agentic Browsing 100 on both pages; Best Practices
+100 on apply.php, 77 on index.php** — that remaining 77 is `is-on-https` (we're on local `http://`)
+and `errors-in-console` (the known `oguaschool.com`-without-port broken-image issue documented
+above) — both artifacts of the local test environment, not real site defects.
+
+Three real, fixed issues, in case the same classes/patterns get reused and reintroduce them:
+
+- **Color contrast**: `text-ink-900/60` (small text on white, 3.79:1) and `text-white/50` (footer
+  copyright line on the dark background, 4.4:1) both failed WCAG AA's 4.5:1 minimum for
+  normal-size text. Fixed site-wide by bumping to `/70` and `/60` respectively (verified via a
+  manual WCAG contrast calculation, not just eyeballing — see the `node -e` sRGB-blend script in
+  this session's history if the same check is needed again). If you introduce new low-opacity
+  muted text, check contrast — don't assume any `/NN` opacity is safe by feel.
+- **Broken image reference**: `includes/footer.php` had `logo.jpg` instead of `logo.png` (that
+  file has never existed — only `logo.png` does). Simple typo, but 404'd silently and contributed
+  to layout shift (see below). Fixed.
+- **Layout shift (CLS) — the real finding worth understanding, not just the fix**: `apply.php`
+  measured CLS 0.32 ("Bad") under throttling, traced (via a `PerformanceObserver` injected
+  directly into the page — far more precise than guessing from Lighthouse's heuristic culprit
+  attribution, which kept implicating fonts even after font fixes didn't move the score) to the
+  entire multi-step `<form>` being wrapped in `x-cloak`. That hides the *whole* form
+  (multiple hundred px tall) until Alpine.js finishes loading over the network, so it renders
+  near-zero height then "pops in" at full size — a huge shift. **The fix is architectural, not
+  cosmetic**: `x-cloak` on a small conditionally-shown element (a banner, a confirmation panel)
+  is cheap and correct; `x-cloak` on a large chunk of *primary, above-the-fold content whose
+  default state should be visible anyway* actively causes the exact problem it's meant to avoid.
+  Resolved by removing `x-cloak` from the `<form>` and from step 0's div (both are correctly
+  visible in plain pre-Alpine HTML, so there's nothing to hide), while keeping `x-cloak` on steps
+  1–4 and the Back/Submit buttons (whose correct default state genuinely is hidden, and which
+  can only ever be reached via an Alpine `@click` handler anyway — so Alpine is guaranteed
+  already loaded by the time they'd need to appear). Dropped CLS from 0.32 to 0.017 under the
+  same throttled conditions; Lighthouse best-practices went 64→100 on that page. **If you add
+  another Alpine-gated multi-step or tabbed UI, apply this same reasoning**: cloak only what's
+  genuinely hidden by default, never a wrapper around content that should already be visible.
+- Also fixed two supporting/secondary contributors caught in the same investigation: gave the
+  header/footer `<img>` logo tags explicit `width`/`height` attributes (an unsized image was a
+  smaller flagged shift source), and split Google Fonts loading into two requests with different
+  `font-display` strategies (`swap` for Heebo/Inter, `optional` for the more visually-distinct
+  Lobster Two) plus `<link rel="preload">` for both current font files — secondary mitigations,
+  not the primary fix, but real and worth keeping. **Caveat**: the preload `href` values are
+  Google's current hashed font-version URLs and will go stale whenever Google revs that font's
+  version — re-derive them (view source, or re-run the same `PerformanceObserver` check) if CLS
+  regresses later; self-hosting the font files would remove this fragility entirely if it becomes
+  a maintenance burden.
+
+**Full-site sweep completed** — every page (`index`, `about`, `academics`, `admissions/index`,
+`admissions/apply`, `gallery`, `news`, `contact`) now scores **Accessibility 100, SEO 100,
+Agentic Browsing 100**. Best Practices is 100 where nothing extra loads, 77 on pages hitting the
+two known local-only artifacts (`is-on-https`, the `oguaschool.com`-without-port broken images),
+and **54 specifically on `gallery.php`** — that one's extra failures (`third-party-cookies`,
+`inspector-issues`) are entirely from the embedded YouTube iframe's own cookies/tracking script.
+That's standard, expected behavior for any site embedding real YouTube content, not a defect —
+don't mistake it for one if this audit is re-run and gallery.php's score looks worse than other
+pages. One more color-contrast instance (`text-ink-900/50`, used for news-card date/location
+text) was caught during this sweep and fixed the same way as the others above.
 
 ## Do Not
 
