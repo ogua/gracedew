@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/*
+ * Gracedew's design tokens. Brand color (#98291e) and type system (Heebo /
+ * Inter / Lobster Two) come from what's actually live on the old site
+ * (css/style.css), not its vestigial Bootstrap-template defaults — see
+ * CLAUDE.md's "Design System / Branding" section.
+ */
+@theme {
+  --font-sans: "Heebo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Lobster Two", ui-serif, Georgia, cursive;
+
+  --color-brand-50: #fdf3f1;
+  --color-brand-100: #f8ddd8;
+  --color-brand-400: #b8493a;
+  --color-brand-500: #98291e;
+  --color-brand-600: #7f2119;
+  --color-brand-700: #661a14;
+
+  --color-ink-50: #eef4f5;
+  --color-ink-900: #103741;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink-900 antialiased bg-white;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn, .btn-primary, .btn-outline, .btn-outline-brand {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 text-white hover:bg-brand-600;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white hover:bg-white hover:text-brand-600;
+  }
+
+  .btn-outline-brand {
+    @apply border-2 border-brand-500 text-brand-600 hover:bg-brand-500 hover:text-white;
+  }
+
+  .section {
+    @apply mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-widest text-brand-500;
+  }
+
+  .card {
+    @apply rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow duration-200 hover:shadow-lg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "gracedew-website",
+  "private": true,
+  "description": "Build-time only. The site itself is plain PHP + a compiled CSS file — no Node runtime is needed on the hosting server, only to rebuild css/app.css during development.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/app.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/app.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
