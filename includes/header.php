@@ -73,7 +73,19 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=optional" rel="stylesheet">
 
-    <link href="/css/app.css" rel="stylesheet">
+    <?php
+    // Cache-busting query string, tied to the compiled file's own mtime.
+    // Without this, the 30-day CDN/browser cache lifetime set in .htaccess
+    // means every deploy that changes app.css silently keeps serving the
+    // OLD cached copy to everyone until that cache naturally expires —
+    // confirmed live: Hostinger's edge cache (hcdn) served a stale version
+    // missing the footer photo-grid rules for hours after the real deploy.
+    // Appending ?v=<mtime> makes each rebuild a brand-new URL, so it's
+    // never colliding with a previously cached one — no manual purge
+    // needed, and the long cache lifetime is now safe to keep as-is.
+    $app_css_version = @filemtime(__DIR__.'/../css/app.css') ?: time();
+    ?>
+    <link href="/css/app.css?v=<?= $app_css_version ?>" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script type="application/ld+json">
