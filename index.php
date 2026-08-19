@@ -9,7 +9,13 @@ $banners = gd_api_get('banners');
 $stats = gd_api_get('stats');
 $news = gd_api_get('news');
 $testimonials = gd_api_get('testimonials');
-$gallery = array_slice(gd_api_get('gallery'), 0, 6);
+// Full pool, not pre-sliced — gd_sample() below draws a random subset from
+// the whole gallery rather than always the same "latest N", and the IDs it
+// picks are excluded from the footer's own photo grid so the two don't
+// just repeat each other on the same page.
+$gallery_pool = gd_api_get('gallery');
+$gallery = gd_sample($gallery_pool, 4);
+$gallery_shown_ids = array_column($gallery, 'id');
 
 require __DIR__.'/includes/header.php';
 ?>

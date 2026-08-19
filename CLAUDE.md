@@ -434,6 +434,76 @@ warnings/errors, and `privacy.php`/`terms.php` score 100/100/100/100 and 100/77/
 respectively on Lighthouse (same known local-environment Best Practices artifact as everywhere
 else).
 
+## Phase 8 — production domain confirmed; CDN caching bug found and fixed
+
+**The real production domain is `https://website.gracedewintschool.com`** (confirmed live,
+verified in-browser 2026-08-19, hosted on Hostinger). Every earlier placeholder
+(`www.gracedew.edu.gh` in `sitemap.xml`/`robots.txt`) has been updated to the real domain.
+Deploy is a manual `git pull` on the server (no CI/CD) — this codebase's changes have no effect
+on the live site until that happens.
+
+**Real bug found and fixed**: reported as a broken footer photo gallery (single stacked column
+instead of a 3×2 grid, huge layout gaps) and general "design inconsistency." Diagnosed directly
+against the live site (not guessed): Hostinger's edge CDN (`hcdn`) was serving `css/app.css`
+with `cache-control: public, max-age=2592000` (30 days — from this repo's own `.htaccess`) and
+had a stale cached copy `age: 21114`s old, from *before* the footer photo-gallery/6-column work
+was deployed, even though the origin server already had the current, correct file (confirmed via
+a direct `curl` fetch that got the up-to-date CSS, versus `document.styleSheets` in the actual
+browser session showing zero `grid-cols-*` rules at all). Every other page/feature checked live
+(admission stepper, nav dropdowns, form borders) rendered correctly, because those classes had
+already been part of an earlier cached snapshot — this was narrowly the newest CSS additions
+colliding with a 30-day cache and no cache-busting.
+
+**Fix**: `includes/header.php` now appends `?v=<?= filemtime(css/app.css) ?>` to the stylesheet
+`<link>`, so the URL itself changes on every rebuild — each deploy gets a brand-new cache key
+that can't collide with anything previously cached by a browser or the CDN, without needing a
+manual cache purge. **The 30-day `.htaccess` cache lifetime was deliberately left as-is** — long
+caching is fine and good for performance now that the URL is content-versioned; the bug was the
+combination of long caching *without* a cache-busting mechanism, not the long duration itself.
+**Apply this same pattern to any other asset that gets edited post-launch and is aggressively
+cached in `.htaccess`** (currently just CSS; images/fonts change rarely enough that it hasn't
+been an issue, but if that changes, version those URLs too).
+
+**Also observed on the live site, not a code issue**: the homepage testimonials show real
+parent names (e.g. "Sarah Akweley, Mother") paired with what reads like leftover placeholder
+quote text (referencing "Firdaws International School" — not Gracedew — and generic phrasing).
+This is a `testimonies` table content issue in oguaschoolz, editable via its admin panel
+(`/admin/testimonies`) — nothing in this codebase to fix; flag it to the school to replace with
+real Gracedew testimonials.
+
+## Phase 9 — gallery photos no longer repeat everywhere
+
+Every gallery-showing spot (homepage Welcome grid, about.php, facilities.php, and the footer's
+own Photo Gallery grid on *every* page) independently called the same `/gallery` endpoint and
+took the first N results — since that endpoint orders "latest first" with no other variation,
+every page and every section showed the identical fixed set of photos, and the footer repeated
+whatever the page body had just shown immediately above it. Reported directly by feedback that
+"the pics are repeated."
+
+**Fix**: added `gd_sample(array $pool, int $count, array $excludeIds = [])` to `db/db.php` — picks
+a random subset from the full gallery pool (not a fixed slice), with an optional exclude list.
+`index.php`, `about.php`, and `facilities.php` now fetch the *full* gallery once
+(`$gallery_pool`), sample from it, and expose which IDs they used via `$gallery_shown_ids` before
+including the footer. `includes/footer.php` reuses that same pool (skips a second API call when
+available) and samples its own 6 photos *excluding* whatever the page body already showed,
+falling back to the full pool only if too few remain after exclusion (so it never shows fewer
+photos than it has room for).
+
+Verified empirically, not just by reading the code: fetched the rendered homepage HTML twice and
+diffed which photos appeared where — body and footer never overlap on the same page load, and
+the specific photos shown differ between separate requests (confirms real randomization, not a
+cached/deterministic order). `gallery.php` itself (the dedicated full-gallery browsing page) was
+deliberately left unchanged — showing everything in a stable order there is the correct behavior;
+only the *decorative preview* spots needed variety.
+
+**Considered but not built**: a proper admin-curated "featured image" flag (a new column on
+oguaschoolz's `imageuploads` table, set via its admin panel) would give the school deliberate
+control over which photos appear in prominent spots, rather than random selection. Random
+sampling was chosen instead because it needed no backend schema change (stays within this
+project's additive-only philosophy toward oguaschoolz) and solves the actual complaint — no more
+repeats — with much less effort. Worth revisiting as a real feature if the school wants to
+hand-pick specific hero-adjacent photos rather than leave it to chance.
+
 ## Do Not
 
 - Do not modify `oguaschoolz`'s existing Passport-protected routes/controllers or its Encore

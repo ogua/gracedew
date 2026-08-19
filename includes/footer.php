@@ -7,8 +7,16 @@
 $school = $school ?? gd_api_get('school');
 $logo_url = $logo_url ?? ($school['logo'] ?? '/asset/images/logo.png');
 // Small photo grid, matching the legacy footer's "Photo Gallery" column —
-// real campus photos, not decorative stock images.
-$footer_gallery = array_slice(gd_api_get('gallery'), 0, 6);
+// real campus photos, not decorative stock images. Reuses the calling
+// page's own gallery pool if it already fetched one (avoids a second API
+// call) and excludes whatever photos the page body already showed
+// ($gallery_shown_ids, set by index.php/about.php/facilities.php etc.) so
+// the footer doesn't just repeat the exact same photos immediately above
+// it — then picks a random sample rather than always the same "latest 6",
+// so different pages (and repeat visits) don't all show identical photos.
+// See gd_sample()'s docblock in db/db.php.
+$footer_gallery_pool = $gallery_pool ?? gd_api_get('gallery');
+$footer_gallery = gd_sample($footer_gallery_pool, min(6, count($footer_gallery_pool)), $gallery_shown_ids ?? []);
 ?>
 </main>
 

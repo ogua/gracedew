@@ -4,10 +4,15 @@ require __DIR__.'/db/db.php';
 $page_title = 'Facilities | Gracedew International School';
 $page_description = 'A safe, clean, well-equipped campus built for focused, joyful learning at Gracedew International School.';
 $school = gd_api_get('school');
-$gallery = array_values(array_filter(gd_api_get('gallery'), fn ($img) => ($img['category'] ?? null) === '2'));
-if (! $gallery) {
-    $gallery = array_slice(gd_api_get('gallery'), 0, 6);
+$gallery_pool = gd_api_get('gallery');
+$campus_photos = array_values(array_filter($gallery_pool, fn ($img) => ($img['category'] ?? null) === '2'));
+if (! $campus_photos) {
+    $campus_photos = $gallery_pool;
 }
+// Random sample (not always the same "first 6") — see gd_sample()'s
+// docblock in db/db.php. IDs excluded from the footer's own photo grid.
+$gallery = gd_sample($campus_photos, min(6, count($campus_photos)));
+$gallery_shown_ids = array_column($gallery, 'id');
 
 require __DIR__.'/includes/header.php';
 ?>

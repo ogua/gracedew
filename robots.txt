@@ -5,4 +5,4 @@ Disallow: /admissions/submit.php
 Disallow: /enquiry-submit.php
 Disallow: /newsletter-submit.php
 
-Sitemap: https://www.gracedew.edu.gh/sitemap.xml
+Sitemap: https://website.gracedewintschool.com/sitemap.xml

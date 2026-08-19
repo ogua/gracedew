@@ -4,7 +4,11 @@ require __DIR__.'/db/db.php';
 $page_title = 'About Us | Gracedew International School';
 $page_description = 'Learn about Gracedew International School\'s history, mission, vision, and core values.';
 $school = gd_api_get('school');
-$gallery = array_slice(gd_api_get('gallery'), 0, 3);
+// Random sample from the full pool (not always the same "latest 3") — see
+// gd_sample()'s docblock in db/db.php. IDs excluded from the footer grid.
+$gallery_pool = gd_api_get('gallery');
+$gallery = gd_sample($gallery_pool, 3);
+$gallery_shown_ids = array_column($gallery, 'id');
 
 require __DIR__.'/includes/header.php';
 ?>

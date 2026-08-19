@@ -149,3 +149,29 @@ function gd_api_log_error(string $message): void
 {
     error_log('[gracedew-api] '.$message);
 }
+
+/**
+ * Picks a random sample of $count items from $pool, optionally excluding
+ * items already used elsewhere on the same page (e.g. so the footer's
+ * photo grid doesn't just repeat whatever the page body already showed).
+ * Every content endpoint (gallery, news, testimonials) is ordered
+ * "latest first" by the API — without this, every page and every section
+ * on every page independently pulls the same fixed "first N" items, so
+ * visitors see the exact same handful of photos repeated everywhere.
+ * Falls back to the full pool if excluding leaves too few to satisfy
+ * $count, rather than showing fewer items than asked for.
+ */
+function gd_sample(array $pool, int $count, array $excludeIds = []): array
+{
+    $candidates = $excludeIds
+        ? array_values(array_filter($pool, fn ($item) => ! in_array($item['id'], $excludeIds, true)))
+        : $pool;
+
+    if (count($candidates) < $count) {
+        $candidates = $pool;
+    }
+
+    shuffle($candidates);
+
+    return array_slice($candidates, 0, $count);
+}
