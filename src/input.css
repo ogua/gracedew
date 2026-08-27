@@ -142,9 +142,31 @@
   /* Step-progress indicator for the admission form — numbered circles with
      a connecting line, not just plain text labels (see CLAUDE.md: the
      original stepper was flagged as poorly designed for exactly this). */
+  /* Homepage hero slider indicators — a filling progress bar, not a dot.
+     The fill animation's duration MUST stay in sync with the 6000ms timer
+     in index.php's hero x-data, or the bar stops being an honest countdown.
+     Re-triggering works because the class moves to a *different* element on
+     every change, so the animation restarts from 0 each time. */
+  .hero-dot {
+    @apply relative h-1 w-8 shrink-0 overflow-hidden rounded-full border-0 bg-white/40 p-0 transition-colors duration-200 hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-400 sm:w-12;
+  }
+
+  .hero-dot-fill {
+    @apply absolute inset-y-0 left-0 w-0 rounded-full bg-gold-400;
+  }
+
+  .hero-dot.is-active .hero-dot-fill {
+    animation: hero-dot-fill 6s linear forwards;
+  }
+
   .step-circle {
     @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 font-display text-base transition-colors duration-200;
   }
+}
+
+@keyframes hero-dot-fill {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

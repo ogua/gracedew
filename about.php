@@ -81,7 +81,7 @@ require __DIR__.'/includes/header.php';
         // Reconciles two differing core-values lists found on the old site
         // (about-us.php vs mission.php) into one set pending the school's
         // confirmation of an authoritative list — see CLAUDE.md.
-        $values = ['Christianity', 'Love', 'Integrity', 'Excellence', 'Community'];
+        $values = ['Godliness', 'Discipline', 'Excellence', 'Respect', 'Integrity'];
         foreach ($values as $v): ?>
             <div class="card p-6 text-center">
                 <h3 class="font-semibold text-brand-600"><?= htmlspecialchars($v) ?></h3>

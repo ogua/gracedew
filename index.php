@@ -20,45 +20,98 @@ $gallery_shown_ids = array_column($gallery, 'id');
 require __DIR__.'/includes/header.php';
 ?>
 
-<!-- Hero -->
-<section class="relative" x-data="{ slide: 0, count: <?= count($banners) ?: 1 ?> }" x-init="setInterval(() => slide = (slide + 1) % count, 6000)">
-    <div class="clip-angle-b relative h-[75vh] min-h-[520px] w-full overflow-hidden bg-brand-900">
+<!-- Hero slider.
+     Crossfading full-bleed slides with a slow Ken Burns push on the photo
+     layer only (never the text), a side-weighted maroon scrim so the copy
+     stays legible over any banner the school uploads, and progress-bar
+     indicators that fill over exactly the same 6s the timer waits, so they
+     read as a real countdown instead of decoration.
+
+     Deliberately NOT x-cloak'd: slide 0 and all the copy are correct in
+     plain pre-Alpine HTML, and cloaking a full-height above-the-fold block
+     is the exact CLS mistake documented in CLAUDE.md. The :class object
+     bindings take over once Alpine loads; the static classes are the
+     no-JS/pre-JS state. -->
+<section class="relative" aria-label="Featured"
+         x-data="{
+             slide: 0,
+             count: <?= max(count($banners), 1) ?>,
+             timer: null,
+             reduced: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+             start() {
+                 if (this.reduced || this.count < 2) return;
+                 clearTimeout(this.timer);
+                 /* setTimeout, rescheduled on every change, rather than a
+                    setInterval — a manual dot click restarts the full 6s so
+                    the fill animation never lies about the time remaining. */
+                 this.timer = setTimeout(() => this.go((this.slide + 1) % this.count), 6000);
+             },
+             go(i) { this.slide = i; this.start(); }
+         }"
+         x-init="start()">
+    <div class="relative h-[85svh] min-h-[560px] w-full overflow-hidden bg-brand-900">
         <?php if ($banners): ?>
             <?php foreach ($banners as $i => $banner): ?>
-                <img src="<?= htmlspecialchars($banner['image']) ?>" alt=""
-                     class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
-                     x-show="slide === <?= $i ?>" x-transition:enter.opacity.duration.1000ms x-cloak>
+                <div class="absolute inset-0 overflow-hidden transition-opacity duration-1000 <?= $i === 0 ? 'opacity-100' : 'opacity-0' ?>"
+                     :class="{ 'opacity-100': slide === <?= $i ?>, 'opacity-0': slide !== <?= $i ?> }">
+                    <img src="<?= htmlspecialchars($banner['image']) ?>" alt=""
+                         <?= $i === 0 ? 'fetchpriority="high"' : 'loading="lazy"' ?>
+                         class="h-full w-full object-cover transition-transform duration-[7000ms] ease-out <?= $i === 0 ? 'scale-105' : 'scale-100' ?> motion-reduce:scale-100"
+                         :class="{ 'scale-105': slide === <?= $i ?>, 'scale-100': slide !== <?= $i ?> }">
+                </div>
             <?php endforeach; ?>
         <?php else: ?>
             <div class="absolute inset-0 bg-gradient-to-br from-brand-700 to-brand-950"></div>
         <?php endif; ?>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-900/45 to-brand-900/15"></div>
 
-        <div class="relative flex h-full max-w-7xl mx-auto flex-col justify-end px-4 pb-24 sm:px-6 lg:px-8">
-            <div class="flex items-center gap-3">
-                <span class="h-px w-10 bg-gold-400"></span>
-                <p class="text-sm font-semibold uppercase tracking-widest text-gold-400">Est. 2001 &middot; Kotobabi, Accra</p>
-            </div>
-            <h1 class="mt-4 max-w-2xl text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
-                Empowering Minds. Shaping Leaders.
-            </h1>
-            <p class="mt-4 max-w-xl text-lg text-white/85">
-                A nurturing, safe, and academically excellent international learning environment
-                where every child is known, loved, and challenged to reach their full potential.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-                <a href="/admissions/apply.php" class="btn-gold">Apply for Admission</a>
-                <a href="/about.php" class="btn-outline">Explore Our School</a>
+        <!-- Two scrims: a side-weighted one carrying the text column, plus a
+             light bottom vignette so the indicators and arc keep contrast. -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/92 via-brand-950/70 to-brand-950/25 sm:to-brand-950/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent"></div>
+
+        <div class="relative flex h-full items-center">
+            <div class="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-3">
+                        <span class="h-px w-10 bg-gold-400"></span>
+                        <p class="text-sm font-semibold uppercase tracking-widest text-gold-400">Est. 2001 &middot; Kotobabi, Accra</p>
+                    </div>
+                    <h1 class="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                        Empowering Minds. Shaping Leaders.
+                    </h1>
+                    <p class="mt-5 max-w-xl text-lg text-white/90">
+                        A nurturing, safe, and academically excellent international learning environment
+                        where every child is known, loved, and challenged to reach their full potential.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="/admissions/apply.php" class="btn-gold">Apply for Admission</a>
+                        <a href="/about.php" class="btn-outline">Explore Our School</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <?php if (count($banners) > 1): ?>
-        <div class="absolute bottom-10 right-6 flex gap-2 sm:right-8">
-            <?php foreach ($banners as $i => $banner): ?>
-                <button @click="slide = <?= $i ?>" class="h-2.5 w-2.5 rounded-full transition-colors" :class="slide === <?= $i ?> ? 'bg-gold-400' : 'bg-white/40'" aria-label="Go to slide <?= $i + 1 ?>"></button>
-            <?php endforeach; ?>
+        <div class="absolute bottom-16 left-0 right-0 z-20">
+            <div class="mx-auto flex max-w-7xl gap-2 px-4 sm:px-6 lg:px-8">
+                <?php foreach ($banners as $i => $banner): ?>
+                    <button type="button" @click="go(<?= $i ?>)"
+                            class="hero-dot<?= $i === 0 ? ' is-active' : '' ?>"
+                            :class="{ 'is-active': slide === <?= $i ?> }"
+                            aria-label="Show slide <?= $i + 1 ?>">
+                        <span class="hero-dot-fill"></span>
+                    </button>
+                <?php endforeach; ?>
+            </div>
         </div>
         <?php endif; ?>
+
+        <!-- Curved sweep into the next section instead of a hard edge (the
+             angled .clip-angle-b band stays the inner pages' signature; the
+             homepage hero gets the softer arc). -->
+        <svg class="absolute bottom-[-1px] left-0 z-10 h-10 w-full text-white sm:h-14" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,60 L0,22 Q720,-38 1440,22 L1440,60 Z" fill="currentColor"></path>
+        </svg>
     </div>
 </section>
 
