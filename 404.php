@@ -12,7 +12,7 @@ require __DIR__.'/includes/header.php';
 
 <section class="section text-center py-24">
     <p class="eyebrow">404</p>
-    <h1 class="mt-2 text-4xl font-bold sm:text-5xl">We Couldn't Find That Page</h1>
+    <h1 class="page-title">We Couldn't Find That Page</h1>
     <p class="mx-auto mt-4 max-w-md text-ink-900/70">
         The page you're looking for may have moved or no longer exists. Let's get you back on track.
     </p>

@@ -8,10 +8,10 @@ $school = gd_api_get('school');
 require __DIR__.'/../includes/header.php';
 ?>
 
-<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
+<section class="page-band">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p class="eyebrow-gold">Admissions</p>
-        <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Join the Gracedew Family</h1>
+        <h1 class="page-title">Join the Gracedew Family</h1>
         <p class="mt-4 max-w-2xl text-white/80">Everything you need to know to apply, plus a
             fast online application you can complete in a few minutes.</p>
     </div>

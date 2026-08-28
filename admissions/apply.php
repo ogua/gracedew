@@ -14,7 +14,7 @@ require __DIR__.'/../includes/header.php';
 
         <div class="text-center" x-show="!submitted">
             <p class="eyebrow">Online Admission</p>
-            <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Apply to Gracedew</h1>
+            <h1 class="page-title">Apply to Gracedew</h1>
             <p class="mt-2 text-ink-900/70">Five short steps — most families finish in under 10 minutes.</p>
         </div>
 

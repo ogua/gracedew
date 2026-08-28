@@ -13,10 +13,10 @@ $gallery_shown_ids = array_column($gallery, 'id');
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
+<section class="page-band">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p class="eyebrow-gold">About Gracedew</p>
-        <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Our Story</h1>
+        <h1 class="page-title">Our Story</h1>
         <p class="mt-4 max-w-2xl text-white/80">A community built on love, excellence, and integrity since 2001.</p>
     </div>
 </section>
@@ -84,7 +84,7 @@ require __DIR__.'/includes/header.php';
         $values = ['Godliness', 'Discipline', 'Excellence', 'Respect', 'Integrity'];
         foreach ($values as $v): ?>
             <div class="card p-6 text-center">
-                <h3 class="font-semibold text-brand-600"><?= htmlspecialchars($v) ?></h3>
+                <h3 class="card-title text-brand-600"><?= htmlspecialchars($v) ?></h3>
             </div>
         <?php endforeach; ?>
     </div>

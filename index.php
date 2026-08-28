@@ -160,7 +160,7 @@ require __DIR__.'/includes/header.php';
             ];
             foreach ($reasons as $r): ?>
                 <div class="card p-6">
-                    <h3 class="text-lg font-semibold"><?= htmlspecialchars($r[0]) ?></h3>
+                    <h3 class="card-title"><?= htmlspecialchars($r[0]) ?></h3>
                     <p class="mt-2 text-sm text-ink-900/70"><?= htmlspecialchars($r[1]) ?></p>
                 </div>
             <?php endforeach; ?>
@@ -205,7 +205,7 @@ require __DIR__.'/includes/header.php';
                 <?php endif; ?>
                 <div class="p-5">
                     <p class="eyebrow"><?= htmlspecialchars($item['type'] ?? 'News') ?></p>
-                    <h3 class="mt-1 font-semibold"><?= htmlspecialchars($item['title']) ?></h3>
+                    <h3 class="card-title mt-1"><?= htmlspecialchars($item['title']) ?></h3>
                     <p class="mt-2 line-clamp-3 text-sm text-ink-900/70"><?= htmlspecialchars(strip_tags($item['description'] ?? '')) ?></p>
                 </div>
             </article>

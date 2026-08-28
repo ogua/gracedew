@@ -10,6 +10,14 @@ $school = $school ?? gd_api_get('school');
 $current_path = basename($_SERVER['SCRIPT_NAME']);
 $site_origin = (($_SERVER['HTTPS'] ?? 'off') !== 'off' ? 'https://' : 'http://').($_SERVER['HTTP_HOST'] ?? 'gracedewintschool.com');
 $canonical_url = $site_origin.($_SERVER['REQUEST_URI'] ?? '/');
+// Hosts that serve this same site but must never appear in search results.
+// website.gracedewintschool.com is deliberately kept reachable as a test host
+// (it is NOT redirected in .htaccess), so `noindex` is the only thing stopping
+// it competing with the real domain for the same content. If a redirect is
+// ever added there, remove this; if this is removed, add the redirect. One of
+// the two must always be in place.
+$noindex_hosts = ['website.gracedewintschool.com'];
+$is_indexable = ! in_array(strtolower($_SERVER['HTTP_HOST'] ?? ''), $noindex_hosts, true);
 // Pages may set $page_image before including this file (e.g. a news
 // article's featured image); falls back to the school's backdrop/cover
 // photo from oguaschoolz, then to nothing (no fabricated stock image).
@@ -27,6 +35,9 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
     <title><?= htmlspecialchars($page_title) ?></title>
     <meta name="description" content="<?= htmlspecialchars($page_description) ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php if (! $is_indexable): ?>
+    <meta name="robots" content="noindex, nofollow">
+<?php endif; ?>
     <link rel="canonical" href="<?= htmlspecialchars($canonical_url) ?>">
 
     <meta property="og:title" content="<?= htmlspecialchars($page_title) ?>">

@@ -17,10 +17,10 @@ $gallery_shown_ids = array_column($gallery, 'id');
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
+<section class="page-band">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p class="eyebrow-gold">Our Campus</p>
-        <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Facilities</h1>
+        <h1 class="page-title">Facilities</h1>
         <p class="mt-4 max-w-2xl text-white/80">A safe, clean, and well-equipped environment, built for focused and joyful learning.</p>
     </div>
 </section>
@@ -42,7 +42,7 @@ require __DIR__.'/includes/header.php';
         ];
         foreach ($features as $f): ?>
             <div class="card p-6">
-                <h3 class="font-semibold"><?= htmlspecialchars($f[0]) ?></h3>
+                <h3 class="card-title"><?= htmlspecialchars($f[0]) ?></h3>
                 <p class="mt-2 text-sm text-ink-900/70"><?= htmlspecialchars($f[1]) ?></p>
             </div>
         <?php endforeach; ?>

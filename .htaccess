@@ -12,26 +12,31 @@ RewriteRule ^ - [F,L]
 # Canonical host: https://gracedewintschool.com
 #
 # The apex is the school's real, brandable domain and the one search engines
-# know. www. and website. (where this site was first deployed) both 301 here
-# so link equity and crawl budget land on ONE hostname instead of being split.
+# know, so www. 301s to it and link equity lands on ONE public hostname.
+#
+# website.gracedewintschool.com is DELIBERATELY NOT redirected — it's kept as
+# a working test host. It is instead served with a `noindex` robots meta tag
+# (see includes/header.php), which is what keeps it from competing with the
+# real site in search; don't add a redirect here without removing that, and
+# don't remove the noindex without adding a redirect. One or the other must
+# always be in place, or the same content is publicly indexable twice.
 #
 # Every condition is scoped to *.gracedewintschool.com on purpose: localhost
 # and any other dev host fall straight through untouched, so this block is
 # inert during local development.
 # ---------------------------------------------------------------------------
 
-# http -> https (also fixes the host in the same hop, so there's never a
-# double redirect). X-Forwarded-Proto is checked too because the site sits
-# behind Hostinger's edge/CDN, where %{HTTPS} alone can read as "off".
+# www.* -> apex, in a single hop regardless of incoming scheme.
+RewriteCond %{HTTP_HOST} ^www\.gracedewintschool\.com$ [NC]
+RewriteRule ^ https://gracedewintschool.com%{REQUEST_URI} [R=301,L]
+
+# http -> https, preserving whichever host was asked for (so the test
+# subdomain stays on itself). X-Forwarded-Proto is checked too because the
+# site sits behind Hostinger's edge/CDN, where %{HTTPS} alone can read "off".
 RewriteCond %{HTTP_HOST} (^|\.)gracedewintschool\.com$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-RewriteRule ^ https://gracedewintschool.com%{REQUEST_URI} [R=301,L]
-
-# www.* and website.* -> apex
-RewriteCond %{HTTP_HOST} (^|\.)gracedewintschool\.com$ [NC]
-RewriteCond %{HTTP_HOST} !^gracedewintschool\.com$ [NC]
-RewriteRule ^ https://gracedewintschool.com%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # ---------------------------------------------------------------------------
 # Legacy URL map — the old site's pages 301 to their nearest equivalent here,

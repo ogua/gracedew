@@ -94,6 +94,14 @@
   }
 }
 
+/* Distinctive angled break on dark section bottoms — a deliberate silhouette
+   the old site's plain-rectangle sections never had, so a dark full-width band
+   doesn't just read as "the same hero shape, different color". Used by
+   .page-band; the homepage hero uses a curved SVG sweep instead. */
+@utility clip-angle-b {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+}
+
 @layer components {
   .btn, .btn-primary, .btn-outline, .btn-outline-brand, .btn-gold, .btn-on-brand {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
@@ -137,6 +145,19 @@
      .panel-title for a heading inside a card/panel/step, .card-title for
      a small repeated card in a grid. Don't re-inline the raw sizes.
      ------------------------------------------------------------------ */
+  /* The dark angled band that heads every inner page — identical markup was
+     copy-pasted onto ten pages. .page-title is the h1 scale for ANY page,
+     band or not (admissions/apply.php keeps its lighter, centred header
+     because it's a focused form flow, but its h1 is the same size as
+     everywhere else now instead of a step smaller). */
+  .page-band {
+    @apply clip-angle-b bg-brand-900 py-16 pb-24 text-white;
+  }
+
+  .page-title {
+    @apply mt-2 text-4xl font-bold sm:text-5xl;
+  }
+
   .section-title {
     @apply mt-2 text-3xl font-bold sm:text-4xl;
   }
@@ -177,14 +198,6 @@
 
   .card {
     @apply rounded-2xl border border-black/5 bg-white shadow-sm transition-shadow duration-200 hover:shadow-lg;
-  }
-
-  /* Distinctive angled break on dark section bottoms (hero, stats band) —
-     a deliberate silhouette the old site's plain-rectangle sections never
-     had, so a dark full-width band doesn't just read as "the same hero
-     shape, different color". Use sparingly: one clipped edge per page. */
-  .clip-angle-b {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
   }
 
   /* Step-progress indicator for the admission form — numbered circles with

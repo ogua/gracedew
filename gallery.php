@@ -22,10 +22,10 @@ $categoriesPresent = array_unique(array_filter(
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
+<section class="page-band">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p class="eyebrow-gold">Gallery</p>
-        <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Life at Gracedew</h1>
+        <h1 class="page-title">Life at Gracedew</h1>
         <p class="mt-4 max-w-2xl text-white/80">A look at our campus, classrooms, and community in action.</p>
     </div>
 </section>
@@ -89,7 +89,7 @@ require __DIR__.'/includes/header.php';
                         </video>
                     <?php endif; ?>
                     <div class="p-4">
-                        <h3 class="font-semibold"><?= htmlspecialchars($video['title'] ?? '') ?></h3>
+                        <h3 class="card-title"><?= htmlspecialchars($video['title'] ?? '') ?></h3>
                         <?php if (! empty($video['description'])): ?>
                             <p class="mt-1 text-sm text-ink-900/70"><?= htmlspecialchars($video['description']) ?></p>
                         <?php endif; ?>

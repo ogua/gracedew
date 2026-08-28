@@ -19,10 +19,10 @@ $sections = [
 require __DIR__.'/includes/header.php';
 ?>
 
-<section class="clip-angle-b bg-brand-900 py-16 pb-24 text-white">
+<section class="page-band">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p class="eyebrow-gold">For Families</p>
-        <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Parent Resources</h1>
+        <h1 class="page-title">Parent Resources</h1>
         <p class="mt-4 max-w-2xl text-white/80">
             Practical information for Gracedew families — how we communicate, our daily routines,
             and the policies that keep every child safe. Full detail is provided in the
@@ -79,19 +79,19 @@ require __DIR__.'/includes/header.php';
             <h2 class="section-title">Daily Life</h2>
             <div class="mt-4 grid gap-4 sm:grid-cols-2">
                 <div class="card p-5">
-                    <h3 class="font-semibold">Arrival Times</h3>
+                    <h3 class="card-title">Arrival Times</h3>
                     <p class="mt-1 text-sm text-ink-900/70">Créche &amp; Nursery 1: 7:30am &middot; Nursery 2 &amp; KG: 7:00am &middot; Primary: 7:00am &middot; JHS: 6:40am. School closes at 4:00pm.</p>
                 </div>
                 <div class="card p-5">
-                    <h3 class="font-semibold">Excused Absences</h3>
+                    <h3 class="card-title">Excused Absences</h3>
                     <p class="mt-1 text-sm text-ink-900/70">Illness, family bereavement, medical/dental appointments, religious holidays, and pre-approved educational trips.</p>
                 </div>
                 <div class="card p-5">
-                    <h3 class="font-semibold">Early Pick-Up</h3>
+                    <h3 class="card-title">Early Pick-Up</h3>
                     <p class="mt-1 text-sm text-ink-900/70">No child leaves before closing time without a parent/guardian's permission being sought in advance.</p>
                 </div>
                 <div class="card p-5">
-                    <h3 class="font-semibold">Toys, Phones &amp; Money</h3>
+                    <h3 class="card-title">Toys, Phones &amp; Money</h3>
                     <p class="mt-1 text-sm text-ink-900/70">Please don't send toys, jewellery, phones, or large amounts of money to school — the school can't be responsible for lost personal items.</p>
                 </div>
             </div>
@@ -163,7 +163,7 @@ require __DIR__.'/includes/header.php';
             <h2 class="section-title">School Pledge &amp; Anthem</h2>
             <div class="mt-4 grid gap-6 sm:grid-cols-2">
                 <div class="card p-6">
-                    <h3 class="font-semibold text-brand-600">School Pledge</h3>
+                    <h3 class="card-title text-brand-600">School Pledge</h3>
                     <p class="mt-2 text-sm italic leading-relaxed text-ink-900/75">
                         I pledge today to do my best in reading, math and all the rest.<br>
                         I promise to obey the rules in my class and in the school.<br>
@@ -174,7 +174,7 @@ require __DIR__.'/includes/header.php';
                     </p>
                 </div>
                 <div class="card p-6">
-                    <h3 class="font-semibold text-brand-600">School Anthem</h3>
+                    <h3 class="card-title text-brand-600">School Anthem</h3>
                     <p class="mt-2 text-sm italic leading-relaxed text-ink-900/75">
                         O praise God Gracedewers,<br>
                         for what you have done for us.<br>
