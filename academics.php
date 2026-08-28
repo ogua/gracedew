@@ -73,10 +73,12 @@ require __DIR__.'/includes/header.php';
 </section>
 
 <section class="section">
-    <div class="grid gap-8 md:grid-cols-2">
+    <p class="eyebrow">Programmes</p>
+    <h2 class="section-title">From Cr&egrave;che to Junior High</h2>
+    <div class="mt-10 grid gap-8 md:grid-cols-2">
         <?php foreach ($programmes as $band => $classNames): ?>
             <div class="card p-8">
-                <h2 class="text-2xl font-bold"><?= htmlspecialchars($band) ?></h2>
+                <h3 class="panel-title"><?= htmlspecialchars($band) ?></h3>
                 <p class="mt-3 text-ink-900/70"><?= htmlspecialchars($programmeCopy[$band] ?? '') ?></p>
                 <p class="mt-4 text-sm font-medium text-brand-600">
                     Classes: <?= htmlspecialchars(implode(', ', $classNames)) ?>
@@ -91,10 +93,10 @@ require __DIR__.'/includes/header.php';
 </section>
 
 <section class="section">
-    <div class="rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700 px-6 py-14 text-center text-white sm:px-16">
-        <h2 class="text-3xl font-bold">Find the Right Fit for Your Child</h2>
+    <div class="cta-band">
+        <h2 class="cta-title">Find the Right Fit for Your Child</h2>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a href="/admissions/apply.php" class="btn bg-white text-brand-600 hover:bg-brand-50">Apply for Admission</a>
+            <a href="/admissions/apply.php" class="btn-on-brand">Apply for Admission</a>
             <a href="/admissions/index.php" class="btn-outline">Admission Requirements</a>
         </div>
     </div>

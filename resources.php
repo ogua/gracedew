@@ -35,7 +35,7 @@ require __DIR__.'/includes/header.php';
     <!-- In-page navigation -->
     <nav class="lg:col-span-1">
         <div class="card sticky top-24 p-5">
-            <p class="text-xs font-semibold uppercase tracking-widest text-ink-900/65">On This Page</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-ink-900/70">On This Page</p>
             <ul class="mt-3 space-y-2 text-sm">
                 <?php foreach ($sections as $anchor => $label): ?>
                     <li><a href="#<?= $anchor ?>" class="text-ink-900/75 hover:text-brand-600"><?= htmlspecialchars($label) ?></a></li>
@@ -48,7 +48,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="partnership" class="scroll-mt-24">
             <p class="eyebrow">Working Together</p>
-            <h2 class="mt-2 text-2xl font-bold">Partnership With Parents</h2>
+            <h2 class="section-title">Partnership With Parents</h2>
             <p class="mt-4 text-ink-900/75">
                 We recognize and affirm the crucial role parents play as their child's primary
                 educators. We're committed to being open, inclusive, welcoming, and respectful of
@@ -60,7 +60,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="communication" class="scroll-mt-24">
             <p class="eyebrow">Staying Connected</p>
-            <h2 class="mt-2 text-2xl font-bold">Communication</h2>
+            <h2 class="section-title">Communication</h2>
             <p class="mt-4 text-ink-900/75">
                 Communication between parents and the headmaster is important — please let us know
                 of any changes in your child's daily life or any concerns, at any time. Parents
@@ -76,7 +76,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="daily-life" class="scroll-mt-24">
             <p class="eyebrow">Routines</p>
-            <h2 class="mt-2 text-2xl font-bold">Daily Life</h2>
+            <h2 class="section-title">Daily Life</h2>
             <div class="mt-4 grid gap-4 sm:grid-cols-2">
                 <div class="card p-5">
                     <h3 class="font-semibold">Arrival Times</h3>
@@ -99,7 +99,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="uniform" class="scroll-mt-24">
             <p class="eyebrow">Dress Code</p>
-            <h2 class="mt-2 text-2xl font-bold">Uniform &amp; Personal Appearance</h2>
+            <h2 class="section-title">Uniform &amp; Personal Appearance</h2>
             <p class="mt-4 text-ink-900/75">
                 Helping children dress appropriately for various activities is part of the
                 educational process. Monday–Wednesday: main school uniform with black shoes and
@@ -115,7 +115,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="health" class="scroll-mt-24">
             <p class="eyebrow">Wellbeing</p>
-            <h2 class="mt-2 text-2xl font-bold">Health, Safety &amp; Nutrition</h2>
+            <h2 class="section-title">Health, Safety &amp; Nutrition</h2>
             <p class="mt-4 text-ink-900/75">
                 Gracedew is committed to a safe, nurturing environment for every student. Parents
                 are asked to send water, fruit, and breakfast daily — lunch is provided at school.
@@ -132,7 +132,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="fees" class="scroll-mt-24">
             <p class="eyebrow">Tuition</p>
-            <h2 class="mt-2 text-2xl font-bold">Fee Paying Policy</h2>
+            <h2 class="section-title">Fee Paying Policy</h2>
             <p class="mt-4 text-ink-900/75">
                 Gracedew opens five days a week, 7:00am–4:00pm. Parents are notified of fee changes
                 a month in advance. At least half of termly fees are due before the term begins,
@@ -148,7 +148,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="complaints" class="scroll-mt-24">
             <p class="eyebrow">We're Listening</p>
-            <h2 class="mt-2 text-2xl font-bold">Complaints Procedure</h2>
+            <h2 class="section-title">Complaints Procedure</h2>
             <p class="mt-4 text-ink-900/75">
                 We aim to partner with parents and take every concern seriously, dealt with fairly
                 and confidentially. Most issues are resolved informally through direct discussion
@@ -160,7 +160,7 @@ require __DIR__.'/includes/header.php';
 
         <div id="culture" class="scroll-mt-24">
             <p class="eyebrow">Our Culture</p>
-            <h2 class="mt-2 text-2xl font-bold">School Pledge &amp; Anthem</h2>
+            <h2 class="section-title">School Pledge &amp; Anthem</h2>
             <div class="mt-4 grid gap-6 sm:grid-cols-2">
                 <div class="card p-6">
                     <h3 class="font-semibold text-brand-600">School Pledge</h3>

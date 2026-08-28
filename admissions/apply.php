@@ -28,11 +28,11 @@ require __DIR__.'/../includes/header.php';
                         <span class="step-circle"
                               :class="i < step
                                   ? 'border-brand-500 bg-brand-500 text-white'
-                                  : (i === step ? 'border-brand-500 text-brand-600' : 'border-ink-900/15 text-ink-900/65')">
+                                  : (i === step ? 'border-brand-500 text-brand-600' : 'border-ink-900/15 text-ink-900/70')">
                             <svg x-show="i < step" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                             <span x-show="i >= step" x-text="i + 1"></span>
                         </span>
-                        <span class="hidden text-center text-xs font-medium sm:block" :class="i === step ? 'text-brand-600' : 'text-ink-900/65'" x-text="label"></span>
+                        <span class="hidden text-center text-xs font-medium sm:block" :class="i === step ? 'text-brand-600' : 'text-ink-900/70'" x-text="label"></span>
                     </div>
                     <div class="mx-2 h-0.5 flex-1 sm:mx-3" :class="i < step ? 'bg-brand-500' : 'bg-ink-900/10'" x-show="i < steps.length - 1"></div>
                 </li>
@@ -61,22 +61,22 @@ require __DIR__.'/../includes/header.php';
 
             <!-- Step 1: Applicant -->
             <div x-show="step === 0" class="card p-6 sm:p-8 space-y-5">
-                <h2 class="text-xl font-bold">Applicant Information</h2>
+                <h2 class="panel-title">Applicant Information</h2>
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
-                        <span class="text-sm font-medium">Surname *</span>
+                        <span class="form-label">Surname *</span>
                         <input type="text" x-model="form.surname" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">First name *</span>
+                        <span class="form-label">First name *</span>
                         <input type="text" x-model="form.firstname" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Other names</span>
+                        <span class="form-label">Other names</span>
                         <input type="text" x-model="form.onames" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Gender *</span>
+                        <span class="form-label">Gender *</span>
                         <select x-model="form.gender" required class="mt-1.5">
                             <option value="">Select</option>
                             <option value="Male">Male</option>
@@ -84,62 +84,62 @@ require __DIR__.'/../includes/header.php';
                         </select>
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Date of birth *</span>
+                        <span class="form-label">Date of birth *</span>
                         <input type="date" x-model="form.dateofbirth" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Place of birth</span>
+                        <span class="form-label">Place of birth</span>
                         <input type="text" x-model="form.placeofbirth" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Nationality</span>
+                        <span class="form-label">Nationality</span>
                         <input type="text" x-model="form.nationality" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Hometown</span>
+                        <span class="form-label">Hometown</span>
                         <input type="text" x-model="form.hometown" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Religion</span>
+                        <span class="form-label">Religion</span>
                         <input type="text" x-model="form.religion" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Disability / support needs</span>
+                        <span class="form-label">Disability / support needs</span>
                         <input type="text" x-model="form.disability" placeholder="Leave blank if none" class="mt-1.5">
                     </label>
                 </div>
                 <label class="block">
-                    <span class="text-sm font-medium">Medical information</span>
+                    <span class="form-label">Medical information</span>
                     <textarea x-model="form.medicalinfo" rows="3" placeholder="Allergies, conditions, medication, etc." class="mt-1.5"></textarea>
                 </label>
             </div>
 
             <!-- Step 2: Guardian -->
             <div x-show="step === 1" x-cloak class="card p-6 sm:p-8 space-y-5">
-                <h2 class="text-xl font-bold">Parent / Guardian Information</h2>
+                <h2 class="panel-title">Parent / Guardian Information</h2>
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
-                        <span class="text-sm font-medium">Full name *</span>
+                        <span class="form-label">Full name *</span>
                         <input type="text" x-model="form.guardian_name" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Relationship to applicant *</span>
+                        <span class="form-label">Relationship to applicant *</span>
                         <input type="text" x-model="form.guardian_relationship" placeholder="e.g. Mother, Father, Guardian" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Phone number *</span>
+                        <span class="form-label">Phone number *</span>
                         <input type="tel" x-model="form.guardian_phone" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Email</span>
+                        <span class="form-label">Email</span>
                         <input type="email" x-model="form.guardian_email" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Occupation</span>
+                        <span class="form-label">Occupation</span>
                         <input type="text" x-model="form.guardian_occupation" class="mt-1.5">
                     </label>
                     <label class="block sm:col-span-2">
-                        <span class="text-sm font-medium">Home address</span>
+                        <span class="form-label">Home address</span>
                         <input type="text" x-model="form.guardian_address" class="mt-1.5">
                     </label>
                 </div>
@@ -147,9 +147,9 @@ require __DIR__.'/../includes/header.php';
 
             <!-- Step 3: Programme -->
             <div x-show="step === 2" x-cloak class="card p-6 sm:p-8 space-y-5">
-                <h2 class="text-xl font-bold">Programme / Class Selection</h2>
+                <h2 class="panel-title">Programme / Class Selection</h2>
                 <label class="block max-w-sm">
-                    <span class="text-sm font-medium">Entry level *</span>
+                    <span class="form-label">Entry level *</span>
                     <select x-model="form.entrylevel" required class="mt-1.5">
                         <option value="">Select a class</option>
                         <?php foreach ($classes as $c): ?>
@@ -164,23 +164,23 @@ require __DIR__.'/../includes/header.php';
 
             <!-- Step 4: Documents -->
             <div x-show="step === 3" x-cloak class="card p-6 sm:p-8 space-y-5">
-                <h2 class="text-xl font-bold">Supporting Documents</h2>
+                <h2 class="panel-title">Supporting Documents</h2>
                 <p class="text-sm text-ink-900/70">Photos/scans accepted as JPG, PNG, or PDF, up to 5MB each. All optional here — you can also bring physical copies at assessment.</p>
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
-                        <span class="text-sm font-medium">Passport photograph</span>
+                        <span class="form-label">Passport photograph</span>
                         <input type="file" name="pic" accept="image/*" @change="form.pic = $event.target.files[0]" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Birth certificate</span>
+                        <span class="form-label">Birth certificate</span>
                         <input type="file" name="document_birth_certificate" accept="image/*,.pdf" @change="form.document_birth_certificate = $event.target.files[0]" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Previous school report</span>
+                        <span class="form-label">Previous school report</span>
                         <input type="file" name="document_previous_report" accept="image/*,.pdf" @change="form.document_previous_report = $event.target.files[0]" class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium">Other document</span>
+                        <span class="form-label">Other document</span>
                         <input type="file" name="document_other" accept="image/*,.pdf" @change="form.document_other = $event.target.files[0]" class="mt-1.5">
                     </label>
                 </div>
@@ -188,7 +188,7 @@ require __DIR__.'/../includes/header.php';
 
             <!-- Step 5: Review -->
             <div x-show="step === 4" x-cloak class="card p-6 sm:p-8 space-y-4">
-                <h2 class="text-xl font-bold">Review Your Application</h2>
+                <h2 class="panel-title">Review Your Application</h2>
                 <dl class="divide-y divide-black/5 text-sm">
                     <template x-for="row in reviewRows()" :key="row[0]">
                         <div class="flex justify-between gap-4 py-2">
@@ -220,7 +220,7 @@ require __DIR__.'/../includes/header.php';
             <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             </div>
-            <h2 class="mt-6 text-2xl font-bold">Application Submitted!</h2>
+            <h2 class="panel-title mt-6">Application Submitted!</h2>
             <p class="mt-2 text-ink-900/70">Thank you — our admissions team will review your application and be in touch.</p>
             <p class="mt-6 text-sm text-ink-900/70">Your reference number</p>
             <p class="text-2xl font-bold text-brand-500" x-text="reference"></p>

@@ -98,6 +98,8 @@ require __DIR__.'/includes/header.php';
                     <button type="button" @click="go(<?= $i ?>)"
                             class="hero-dot<?= $i === 0 ? ' is-active' : '' ?>"
                             :class="{ 'is-active': slide === <?= $i ?> }"
+                            :aria-current="slide === <?= $i ?>"
+                            aria-current="<?= $i === 0 ? 'true' : 'false' ?>"
                             aria-label="Show slide <?= $i + 1 ?>">
                         <span class="hero-dot-fill"></span>
                     </button>
@@ -119,7 +121,7 @@ require __DIR__.'/includes/header.php';
 <section class="section grid gap-12 lg:grid-cols-2 lg:items-center">
     <div>
         <p class="eyebrow">Welcome to Gracedew</p>
-        <h2 class="mt-2 text-3xl font-bold sm:text-4xl">A Community Where Every Child Thrives</h2>
+        <h2 class="section-title">A Community Where Every Child Thrives</h2>
         <p class="mt-5 text-lg text-ink-900/75">
             To provide transformative education that empowers students to excel academically,
             think critically, and lead with integrity. Through holistic learning experiences, we
@@ -147,7 +149,7 @@ require __DIR__.'/includes/header.php';
 <section id="why-us" class="scroll-mt-24 bg-brand-50">
     <div class="section">
         <p class="eyebrow">Why Gracedew</p>
-        <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Why Families Choose Us</h2>
+        <h2 class="section-title">Why Families Choose Us</h2>
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <?php
             $reasons = [
@@ -191,7 +193,7 @@ require __DIR__.'/includes/header.php';
     <div class="flex items-end justify-between">
         <div>
             <p class="eyebrow">Stay Informed</p>
-            <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Latest News &amp; Events</h2>
+            <h2 class="section-title">Latest News &amp; Events</h2>
         </div>
         <a href="/news.php" class="hidden sm:block font-medium text-brand-500 hover:underline">View all</a>
     </div>
@@ -217,7 +219,7 @@ require __DIR__.'/includes/header.php';
 <section class="bg-brand-50">
     <div class="section">
         <p class="eyebrow">What Families Say</p>
-        <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Our Community Speaks</h2>
+        <h2 class="section-title">Our Community Speaks</h2>
         <div class="mt-10 grid gap-6 md:grid-cols-2">
             <?php foreach (array_slice($testimonials, 0, 4) as $t): ?>
                 <blockquote class="card p-6">
@@ -234,14 +236,14 @@ require __DIR__.'/includes/header.php';
 
 <!-- Admission CTA -->
 <section class="section">
-    <div class="rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700 px-6 py-16 text-center text-white sm:px-16">
-        <h2 class="text-3xl font-bold sm:text-4xl">Ready to Join the Gracedew Family?</h2>
+    <div class="cta-band">
+        <h2 class="cta-title">Ready to Join the Gracedew Family?</h2>
         <p class="mx-auto mt-4 max-w-xl text-white/90">
             Applications are open. Start your child's journey with us today — our online
             admission process takes just a few minutes.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a href="/admissions/apply.php" class="btn bg-white text-brand-600 hover:bg-brand-50">Apply for Admission</a>
+            <a href="/admissions/apply.php" class="btn-on-brand">Apply for Admission</a>
             <a href="/contact.php" class="btn-outline">Book a Visit</a>
         </div>
     </div>

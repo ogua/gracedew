@@ -27,7 +27,7 @@ require __DIR__.'/includes/header.php';
 
 <section class="section">
     <p class="eyebrow">Built for Learning</p>
-    <h2 class="mt-2 text-3xl font-bold sm:text-4xl">What Sets Our Campus Apart</h2>
+    <h2 class="section-title">What Sets Our Campus Apart</h2>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <?php
         // Real content from the school's own admission-requirements page —
@@ -53,11 +53,11 @@ require __DIR__.'/includes/header.php';
 <section class="bg-brand-50">
     <div class="section">
         <p class="eyebrow">A Look Around</p>
-        <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Our Campus in Photos</h2>
+        <h2 class="section-title">Our Campus in Photos</h2>
         <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
             <?php foreach (array_slice($gallery, 0, 6) as $img): ?>
                 <img src="<?= htmlspecialchars($img['url']) ?>" alt="<?= htmlspecialchars($img['title'] ?? 'Gracedew campus facility') ?>"
-                     class="aspect-square w-full rounded-xl object-cover shadow-sm" loading="lazy">
+                     class="aspect-square w-full rounded-2xl object-cover shadow-sm" loading="lazy">
             <?php endforeach; ?>
         </div>
         <a href="/gallery.php" class="btn-outline-brand mt-8">View Full Gallery</a>
@@ -66,10 +66,10 @@ require __DIR__.'/includes/header.php';
 <?php endif; ?>
 
 <section class="section">
-    <div class="rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700 px-6 py-14 text-center text-white sm:px-16">
-        <h2 class="text-3xl font-bold">Come See Our Campus for Yourself</h2>
+    <div class="cta-band">
+        <h2 class="cta-title">Come See Our Campus for Yourself</h2>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a href="/contact.php" class="btn bg-white text-brand-600 hover:bg-brand-50">Book a Visit</a>
+            <a href="/contact.php" class="btn-on-brand">Book a Visit</a>
             <a href="/admissions/apply.php" class="btn-outline">Apply for Admission</a>
         </div>
     </div>

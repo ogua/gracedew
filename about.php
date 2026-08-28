@@ -25,7 +25,7 @@ require __DIR__.'/includes/header.php';
 <section id="story" class="section scroll-mt-24 grid gap-12 lg:grid-cols-2 lg:items-center">
     <div>
         <p class="eyebrow">Our History</p>
-        <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Founded on a Vision of Care</h2>
+        <h2 class="section-title">Founded on a Vision of Care</h2>
         <p class="mt-5 text-ink-900/75">
             Madam Dorothy Asare Bediako was a visionary educator and leader, born on
             August 16, 1952. Her legacy continues to inspire and nurture young minds through
@@ -75,7 +75,7 @@ require __DIR__.'/includes/header.php';
 <!-- Core Values -->
 <section id="values" class="section scroll-mt-24">
     <p class="eyebrow">What We Stand For</p>
-    <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Our Core Values</h2>
+    <h2 class="section-title">Our Core Values</h2>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
         <?php
         // Reconciles two differing core-values lists found on the old site
@@ -92,10 +92,10 @@ require __DIR__.'/includes/header.php';
 
 <!-- CTA -->
 <section class="section">
-    <div class="rounded-3xl bg-gradient-to-br from-brand-500 to-brand-700 px-6 py-14 text-center text-white sm:px-16">
-        <h2 class="text-3xl font-bold">Come See Gracedew for Yourself</h2>
+    <div class="cta-band">
+        <h2 class="cta-title">Come See Gracedew for Yourself</h2>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a href="/admissions/apply.php" class="btn bg-white text-brand-600 hover:bg-brand-50">Apply for Admission</a>
+            <a href="/admissions/apply.php" class="btn-on-brand">Apply for Admission</a>
             <a href="/contact.php" class="btn-outline">Book a Visit</a>
         </div>
     </div>

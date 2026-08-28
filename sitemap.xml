@@ -1,67 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Static sitemap. Domain confirmed: website.gracedewintschool.com is the real
-  production site (verified live 2026-08-19). Update lastmod dates when a
-  page's content materially changes.
+  Static sitemap. Canonical production domain is the apex
+  gracedewintschool.com — www. and website. both 301 to it via .htaccess, so
+  only apex URLs belong in here. Update lastmod dates when a page's content
+  materially changes.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://website.gracedewintschool.com/index.php</loc>
+        <loc>https://gracedewintschool.com/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/about.php</loc>
+        <loc>https://gracedewintschool.com/about.php</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/academics.php</loc>
+        <loc>https://gracedewintschool.com/academics.php</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/admissions/index.php</loc>
+        <loc>https://gracedewintschool.com/admissions/index.php</loc>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/admissions/apply.php</loc>
+        <loc>https://gracedewintschool.com/admissions/apply.php</loc>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/gallery.php</loc>
+        <loc>https://gracedewintschool.com/gallery.php</loc>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/news.php</loc>
+        <loc>https://gracedewintschool.com/news.php</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/contact.php</loc>
+        <loc>https://gracedewintschool.com/contact.php</loc>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/facilities.php</loc>
+        <loc>https://gracedewintschool.com/facilities.php</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/resources.php</loc>
+        <loc>https://gracedewintschool.com/resources.php</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/privacy.php</loc>
+        <loc>https://gracedewintschool.com/privacy.php</loc>
         <changefreq>yearly</changefreq>
         <priority>0.2</priority>
     </url>
     <url>
-        <loc>https://website.gracedewintschool.com/terms.php</loc>
+        <loc>https://gracedewintschool.com/terms.php</loc>
         <changefreq>yearly</changefreq>
         <priority>0.2</priority>
     </url>

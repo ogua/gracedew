@@ -1,11 +1,80 @@
 ErrorDocument 404 /404.php
 
+RewriteEngine On
+
 # Nothing in db/ is meant to be requested directly — every file there is
 # only ever `require`d by other PHP scripts, and config.local.php holds a
 # secret token. Block direct web access to the whole folder.
-RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/db/
 RewriteRule ^ - [F,L]
+
+# ---------------------------------------------------------------------------
+# Canonical host: https://gracedewintschool.com
+#
+# The apex is the school's real, brandable domain and the one search engines
+# know. www. and website. (where this site was first deployed) both 301 here
+# so link equity and crawl budget land on ONE hostname instead of being split.
+#
+# Every condition is scoped to *.gracedewintschool.com on purpose: localhost
+# and any other dev host fall straight through untouched, so this block is
+# inert during local development.
+# ---------------------------------------------------------------------------
+
+# http -> https (also fixes the host in the same hop, so there's never a
+# double redirect). X-Forwarded-Proto is checked too because the site sits
+# behind Hostinger's edge/CDN, where %{HTTPS} alone can read as "off".
+RewriteCond %{HTTP_HOST} (^|\.)gracedewintschool\.com$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://gracedewintschool.com%{REQUEST_URI} [R=301,L]
+
+# www.* and website.* -> apex
+RewriteCond %{HTTP_HOST} (^|\.)gracedewintschool\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^gracedewintschool\.com$ [NC]
+RewriteRule ^ https://gracedewintschool.com%{REQUEST_URI} [R=301,L]
+
+# ---------------------------------------------------------------------------
+# Legacy URL map — the old site's pages 301 to their nearest equivalent here,
+# so whatever ranking those URLs earned carries over instead of dying in a
+# 404. Only paths that DON'T exist in the new site are listed: index.php,
+# gallery.php and contact.php exist under the same names and must not be
+# redirected. Anchors point at real ids on the target pages — check the
+# target still has the id before changing one.
+# ---------------------------------------------------------------------------
+RewriteRule ^about-us\.php$                                        /about.php [R=301,L]
+RewriteRule ^history\.php$                                         /about.php#story [R=301,L,NE]
+RewriteRule ^mission\.php$                                         /about.php#mission [R=301,L,NE]
+RewriteRule ^welcome-message\.php$                                 /about.php [R=301,L]
+RewriteRule ^princpal-message(-old)?\.php$                         /about.php [R=301,L]
+RewriteRule ^statistics\.php$                                      /about.php [R=301,L]
+
+RewriteRule ^admission-requirements\.php$                          /admissions/index.php [R=301,L]
+RewriteRule ^admissions-and-curricular\.php$                       /admissions/index.php [R=301,L]
+
+RewriteRule ^our-service(-old)?\.php$                              /academics.php [R=301,L]
+
+RewriteRule ^school-premises\.php$                                 /facilities.php [R=301,L]
+
+RewriteRule ^(our-gallery|photos)\.php$                            /gallery.php [R=301,L]
+RewriteRule ^videos\.php$                                          /gallery.php#videos [R=301,L,NE]
+RewriteRule ^(excursions|carrier-day)\.php$                        /gallery.php [R=301,L]
+
+RewriteRule ^posts\.php$                                           /news.php [R=301,L]
+
+RewriteRule ^contact-us\.php$                                      /contact.php [R=301,L]
+
+RewriteRule ^(our-)?testimonial(-old)?\.php$                       / [R=301,L]
+
+RewriteRule ^parent-information\.php$                              /resources.php [R=301,L]
+RewriteRule ^partnership-with-parents\.php$                        /resources.php#partnership [R=301,L,NE]
+RewriteRule ^communication\.php$                                   /resources.php#communication [R=301,L,NE]
+RewriteRule ^personal-appearance\.php$                             /resources.php#uniform [R=301,L,NE]
+RewriteRule ^student-and-staff-responsibility-and-dress-code\.php$ /resources.php#uniform [R=301,L,NE]
+RewriteRule ^(health-safty-and-nutrition|covid-protocols)\.php$    /resources.php#health [R=301,L,NE]
+RewriteRule ^feepaying-policy\.php$                                /resources.php#fees [R=301,L,NE]
+RewriteRule ^complaints-procedure\.php$                            /resources.php#complaints [R=301,L,NE]
+RewriteRule ^(school-pledge|school-anthem)\.php$                   /resources.php#culture [R=301,L,NE]
+RewriteRule ^code-of-ethics\.php$                                  /resources.php [R=301,L]
 
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json

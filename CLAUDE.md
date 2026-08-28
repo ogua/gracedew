@@ -504,6 +504,44 @@ project's additive-only philosophy toward oguaschoolz) and solves the actual com
 repeats — with much less effort. Worth revisiting as a real feature if the school wants to
 hand-pick specific hero-adjacent photos rather than leave it to chance.
 
+## Phase 10 — homepage hero slider rebuilt
+
+Prompted by feedback pointing at `https://wonderworldinternationalschool.com` ("the slider looks
+nicer"). Its hero was read directly from source (HTML + `css/home.css` + `js/main.js`), not
+guessed at, and the four things that actually make it read better were ported to Gracedew's
+Tailwind/Alpine stack in `index.php` — the reference's own palette, copy, and layout were *not*
+copied (that would repeat the v1 "reskin" mistake documented in Phase 7):
+
+- **Ken Burns push on the photo layer only** — each slide's `<img>` sits inside its own
+  positioned wrapper and eases `scale-100 → scale-105` over 7s while the wrapper crossfades;
+  the text never scales. Note Tailwind v4 compiles `scale-*` to the CSS `scale` property (not
+  `transform`), which `transition-transform` does cover — verified in the browser, don't
+  "fix" it to `transition-[transform]`.
+- **Side-weighted scrim** instead of the old bottom-up one, with the copy vertically centred and
+  left-aligned in a `max-w-2xl` column — legible over any banner the school uploads, rather than
+  depending on the photo being dark at the bottom.
+- **Progress-bar indicators** (`.hero-dot` / `.hero-dot-fill` in `src/input.css`) replacing round
+  dots: a gold bar fills over 6s, matching the rotation timer exactly. The rotation uses a
+  *rescheduled `setTimeout`*, not `setInterval`, so clicking an indicator restarts the full
+  countdown and the fill never lies about the time left. **The 6s in `src/input.css`'s
+  `hero-dot-fill` animation and the 6000ms in `index.php`'s hero `x-data` must stay in sync.**
+  Re-triggering the fill works because the `is-active` class moves to a *different* element each
+  change; that's why it restarts cleanly without any JS animation reset.
+- **Curved bottom sweep** (inline SVG, `fill="currentColor"` in white) instead of `.clip-angle-b`.
+  Deliberately homepage-only — the angled `.clip-angle-b` band stays the *inner* pages' signature,
+  so the two aren't competing for the same silhouette.
+
+Autoplay is skipped entirely under `prefers-reduced-motion` (checked in `x-data`, on top of the
+global reduced-motion CSS block) and when there's only one banner.
+
+**Still not x-cloak'd, on purpose** — slide 0 and all the hero copy are correct in plain
+pre-Alpine HTML, so the Phase 6 CLS lesson applies directly here: the `:class` object bindings
+take over once Alpine loads, and the static classes are the pre-JS state. Verified: CLS 0.00,
+Accessibility/SEO/Agentic Browsing all still 100 (Best Practices still 77 from the two known
+local-environment artifacts). The banners API returns only `{id, image}` — no caption field — so
+the reference's per-slide photo captions were left out rather than inventing text; adding them
+would need a new column surfaced through `/banners`.
+
 ## Do Not
 
 - Do not modify `oguaschoolz`'s existing Passport-protected routes/controllers or its Encore

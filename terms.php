@@ -25,7 +25,7 @@ require __DIR__.'/includes/header.php';
     </p>
 
     <div>
-        <h2 class="text-xl font-bold">Using This Website</h2>
+        <h2 class="panel-title">Using This Website</h2>
         <p class="mt-3 text-ink-900/75">
             This site is provided for prospective and current families, and the wider public, to
             learn about Gracedew International School and to apply for admission or get in
@@ -36,7 +36,7 @@ require __DIR__.'/includes/header.php';
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">Online Admission Applications</h2>
+        <h2 class="panel-title">Online Admission Applications</h2>
         <p class="mt-3 text-ink-900/75">
             Submitting an application through this website does not guarantee admission.
             Applications are reviewed by our admissions team following the same process described
@@ -48,7 +48,7 @@ require __DIR__.'/includes/header.php';
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">Content &amp; Intellectual Property</h2>
+        <h2 class="panel-title">Content &amp; Intellectual Property</h2>
         <p class="mt-3 text-ink-900/75">
             The text, photos, and branding on this site belong to Gracedew International School
             unless otherwise noted, and are shared here to inform prospective and current
@@ -57,7 +57,7 @@ require __DIR__.'/includes/header.php';
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">Accuracy of Information</h2>
+        <h2 class="panel-title">Accuracy of Information</h2>
         <p class="mt-3 text-ink-900/75">
             We work to keep fees, programme details, and school information on this site current,
             but details can change between updates. For anything time-sensitive — fee amounts,
@@ -67,7 +67,7 @@ require __DIR__.'/includes/header.php';
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">External Links</h2>
+        <h2 class="panel-title">External Links</h2>
         <p class="mt-3 text-ink-900/75">
             This site links to a small number of external services — Google Maps, YouTube, and
             our Facebook page. We aren't responsible for the content or privacy practices of
@@ -76,7 +76,7 @@ require __DIR__.'/includes/header.php';
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">No Warranty</h2>
+        <h2 class="panel-title">No Warranty</h2>
         <p class="mt-3 text-ink-900/75">
             We aim to keep this website accurate and available, but it's provided "as is," without
             guarantees of uninterrupted availability or that it will always be error-free.
@@ -84,14 +84,14 @@ require __DIR__.'/includes/header.php';
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">Governing Law</h2>
+        <h2 class="panel-title">Governing Law</h2>
         <p class="mt-3 text-ink-900/75">
             These terms are governed by the laws of Ghana.
         </p>
     </div>
 
     <div>
-        <h2 class="text-xl font-bold">Changes to These Terms</h2>
+        <h2 class="panel-title">Changes to These Terms</h2>
         <p class="mt-3 text-ink-900/75">
             We may update these terms as the website changes. The date at the top of this page
             shows when it was last revised. See also our
@@ -100,7 +100,7 @@ require __DIR__.'/includes/header.php';
         </p>
     </div>
 
-    <p class="text-xs text-ink-900/65">
+    <p class="text-xs text-ink-900/70">
         These terms describe our current practices in plain language and have not been reviewed
         by outside legal counsel. If you have specific compliance requirements, please consult a
         qualified advisor.

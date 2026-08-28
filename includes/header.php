@@ -8,7 +8,7 @@ $page_title = $page_title ?? 'Gracedew International School';
 $page_description = $page_description ?? 'Gracedew International School — a premium, nurturing international learning environment in Kotobabi, Accra.';
 $school = $school ?? gd_api_get('school');
 $current_path = basename($_SERVER['SCRIPT_NAME']);
-$site_origin = (($_SERVER['HTTPS'] ?? 'off') !== 'off' ? 'https://' : 'http://').($_SERVER['HTTP_HOST'] ?? 'gracedew.edu.gh');
+$site_origin = (($_SERVER['HTTPS'] ?? 'off') !== 'off' ? 'https://' : 'http://').($_SERVER['HTTP_HOST'] ?? 'gracedewintschool.com');
 $canonical_url = $site_origin.($_SERVER['REQUEST_URI'] ?? '/');
 // Pages may set $page_image before including this file (e.g. a news
 // article's featured image); falls back to the school's backdrop/cover
@@ -95,7 +95,7 @@ $logo_url = $school['logo'] ?? $site_origin.'/asset/images/logo.png';
         'name' => 'Gracedew International School',
         'foundingDate' => '2001',
         'description' => 'A nurturing, safe, and academically excellent international learning environment in Kotobabi, Accra.',
-        'url' => 'https://'.($_SERVER['HTTP_HOST'] ?? 'gracedew.edu.gh').'/index.php',
+        'url' => $site_origin.'/',
         'logo' => $logo_url,
         'image' => $page_image,
         'email' => 'gracedew.int.school@gmail.com',

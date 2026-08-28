@@ -74,20 +74,20 @@ require __DIR__.'/includes/header.php';
             ">
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
-                        <span class="text-sm font-medium text-ink-900/80">Full name *</span>
+                        <span class="form-label">Full name *</span>
                         <input type="text" name="fullname" required class="mt-1.5">
                     </label>
                     <label class="block">
-                        <span class="text-sm font-medium text-ink-900/80">Phone *</span>
+                        <span class="form-label">Phone *</span>
                         <input type="tel" name="phone" required class="mt-1.5">
                     </label>
                 </div>
                 <label class="block">
-                    <span class="text-sm font-medium text-ink-900/80">Email</span>
+                    <span class="form-label">Email</span>
                     <input type="email" name="email" class="mt-1.5">
                 </label>
                 <label class="block">
-                    <span class="text-sm font-medium text-ink-900/80">Message *</span>
+                    <span class="form-label">Message *</span>
                     <textarea name="note" rows="5" required class="mt-1.5"></textarea>
                 </label>
 

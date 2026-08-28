@@ -47,7 +47,7 @@ require __DIR__.'/includes/header.php';
             <button type="button"
                     x-show="filter === 'all' || filter === '<?= htmlspecialchars($img['category'] ?? '') ?>'"
                     @click="lightbox = '<?= htmlspecialchars(addslashes($img['url'])) ?>'"
-                    class="group aspect-square overflow-hidden rounded-xl bg-brand-50">
+                    class="group aspect-square overflow-hidden rounded-2xl bg-brand-50">
                 <img src="<?= htmlspecialchars($img['url']) ?>" alt="<?= htmlspecialchars($img['title'] ?? 'Gracedew campus photo') ?>"
                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
             </button>
@@ -70,10 +70,10 @@ require __DIR__.'/includes/header.php';
 
 <!-- Videos -->
 <?php if ($videos): ?>
-<section class="bg-brand-50">
+<section id="videos" class="scroll-mt-24 bg-brand-50">
     <div class="section">
         <p class="eyebrow">Watch</p>
-        <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Video Showcase</h2>
+        <h2 class="section-title">Video Showcase</h2>
         <div class="mt-8 grid gap-6 md:grid-cols-2">
             <?php foreach ($videos as $video): ?>
                 <div class="card overflow-hidden">

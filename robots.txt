@@ -5,4 +5,4 @@ Disallow: /admissions/submit.php
 Disallow: /enquiry-submit.php
 Disallow: /newsletter-submit.php
 
-Sitemap: https://website.gracedewintschool.com/sitemap.xml
+Sitemap: https://gracedewintschool.com/sitemap.xml
